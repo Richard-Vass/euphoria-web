@@ -781,3 +781,39 @@ section + section::before {
   color: var(--gold);
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVITY FIXES
+   ========================================================================== */
+
+@media (max-width: 400px) {
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .menu-tab {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
+  }
+
+  .reservation-wrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-col {
+    text-align: center;
+  }
+}

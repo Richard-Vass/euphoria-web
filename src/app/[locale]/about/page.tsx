@@ -1,5 +1,34 @@
 import { Locale, getDictionary } from "@/lib/i18n";
 import { Star, Users, Music, Sparkles } from "lucide-react";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const titles: Record<string, string> = {
+    sk: "O nás",
+    hu: "Rólunk",
+    de: "Über uns",
+    en: "About",
+  };
+  const descriptions: Record<string, string> = {
+    sk: "Euphoria Night Club — exkluzívny nočný klub v Šamoríne. Naša história a hodnoty.",
+    hu: "Euphoria Night Club — exkluzív éjszakai klub Somorján. Történetünk és értékeink.",
+    de: "Euphoria Night Club — exklusiver Nachtclub in Šamorín. Unsere Geschichte und Werte.",
+    en: "Euphoria Night Club — an exclusive nightclub in Šamorín. Our story and values.",
+  };
+  return {
+    title: titles[locale] || titles.en,
+    description: descriptions[locale] || descriptions.en,
+    openGraph: {
+      title: titles[locale] || titles.en,
+      description: descriptions[locale] || descriptions.en,
+    },
+  };
+}
 
 export default async function AboutPage({
   params,

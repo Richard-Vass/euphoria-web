@@ -1,5 +1,34 @@
 import { Locale, getDictionary } from "@/lib/i18n";
 import { Camera } from "lucide-react";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const titles: Record<string, string> = {
+    sk: "Galéria",
+    hu: "Galéria",
+    de: "Galerie",
+    en: "Gallery",
+  };
+  const descriptions: Record<string, string> = {
+    sk: "Fotky a videá z najlepších nocí v Euphoria Night Club.",
+    hu: "Fotók és videók a legjobb éjszakákról az Euphoria Night Clubban.",
+    de: "Fotos und Videos der besten Nächte im Euphoria Night Club.",
+    en: "Photos and videos from the best nights at Euphoria Night Club.",
+  };
+  return {
+    title: titles[locale] || titles.en,
+    description: descriptions[locale] || descriptions.en,
+    openGraph: {
+      title: titles[locale] || titles.en,
+      description: descriptions[locale] || descriptions.en,
+    },
+  };
+}
 
 export default async function GalleryPage({
   params,

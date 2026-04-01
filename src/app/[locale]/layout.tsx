@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { Bodoni_Moda, Inter, Raleway } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import BackToTop from "@/components/ui/BackToTop";
+import LoadingScreen from "@/components/ui/LoadingScreen";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin", "latin-ext"],
@@ -45,9 +47,11 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${bodoni.variable} ${inter.variable} ${raleway.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <LoadingScreen />
         <Navbar locale={locale as Locale} dict={dict} />
         <main className="flex-1 pt-20">{children}</main>
         <Footer locale={locale as Locale} dict={dict} />
+        <BackToTop />
       </body>
     </html>
   );

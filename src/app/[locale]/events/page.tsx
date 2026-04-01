@@ -1,6 +1,35 @@
 import { Locale, getDictionary } from "@/lib/i18n";
 import { Calendar, Music } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const titles: Record<string, string> = {
+    sk: "Eventy & Párty",
+    hu: "Események & Partik",
+    de: "Events & Partys",
+    en: "Events & Parties",
+  };
+  const descriptions: Record<string, string> = {
+    sk: "Najbližšie akcie, párty a tematické večery v Euphoria Night Club Šamorín.",
+    hu: "Közelgő események, partik és tematikus esték az Euphoria Night Clubban, Somorján.",
+    de: "Kommende Events, Partys und Themenabende im Euphoria Night Club Šamorín.",
+    en: "Upcoming events, parties and themed nights at Euphoria Night Club Šamorín.",
+  };
+  return {
+    title: titles[locale] || titles.en,
+    description: descriptions[locale] || descriptions.en,
+    openGraph: {
+      title: titles[locale] || titles.en,
+      description: descriptions[locale] || descriptions.en,
+    },
+  };
+}
 
 export default async function EventsPage({
   params,
