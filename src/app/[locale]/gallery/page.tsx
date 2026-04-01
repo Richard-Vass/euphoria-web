@@ -1,0 +1,50 @@
+import { Locale, getDictionary } from "@/lib/i18n";
+import { Camera } from "lucide-react";
+
+export default async function GalleryPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
+
+  // Placeholder — will load from Supabase
+  const placeholders = Array.from({ length: 9 }, (_, i) => ({
+    id: String(i + 1),
+    aspect: i % 3 === 0 ? "aspect-square" : i % 3 === 1 ? "aspect-video" : "aspect-[3/4]",
+  }));
+
+  return (
+    <section className="py-24 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="section-title">{dict.gallery_title}</h1>
+          <div className="gold-line mx-auto mt-4" />
+        </div>
+
+        <p className="text-center text-euphoria-muted mb-8">
+          {locale === "sk" ? "Fotky budú doplnené čoskoro." :
+           locale === "hu" ? "A fotók hamarosan érkeznek." :
+           locale === "de" ? "Fotos folgen in Kürze." :
+           "Photos coming soon."}
+        </p>
+
+        {/* Masonry grid */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+          {placeholders.map((item) => (
+            <div
+              key={item.id}
+              className={`${item.aspect} bg-euphoria-dark border border-euphoria-gray/20 flex items-center justify-center group hover:border-euphoria-gold/30 transition-all duration-300 cursor-pointer break-inside-avoid`}
+            >
+              <Camera
+                size={40}
+                className="text-euphoria-muted/20 group-hover:text-euphoria-gold/30 transition-colors"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
