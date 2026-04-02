@@ -29,6 +29,14 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Euphoria Night Club",
     locale: "sk_SK",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Euphoria Night Club — Šamorín",
+      },
+    ],
   },
 };
 

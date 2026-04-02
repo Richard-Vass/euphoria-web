@@ -30,6 +30,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
 
   const navLinks = [
     { href: `/${locale}`, label: dict.nav_home },
+    { href: `/${locale}/about`, label: dict.nav_about },
     { href: `/${locale}/events`, label: dict.nav_events },
     { href: `/${locale}/reservation`, label: dict.nav_reservation },
     { href: `/${locale}/gallery`, label: dict.nav_gallery },
