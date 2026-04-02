@@ -594,6 +594,34 @@ export default function ReservationPage() {
 
       if (result.success) {
         setBookingId(result.id || null);
+
+        // Send email notification via Edge Function
+        try {
+          await fetch(
+            `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-reservation-email`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+              },
+              body: JSON.stringify({
+                customer_name: formData.name,
+                customer_email: formData.email,
+                customer_phone: formData.phone,
+                date: selectedDate,
+                time_slot: `${selectedSlot.start_time} – ${selectedSlot.end_time}`,
+                guests_count: formData.guests,
+                room_name: selectedRoom.name,
+                price: `${selectedRoom.price_per_slot}€`,
+                note: formData.note || undefined,
+              }),
+            }
+          );
+        } catch (emailErr) {
+          console.error("Email notification failed:", emailErr);
+        }
+
         goNext();
       } else {
         alert(result.error || "Error");
