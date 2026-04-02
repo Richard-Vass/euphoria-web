@@ -12,6 +12,8 @@ import {
   Check,
   Crown,
   Loader2,
+  CalendarPlus,
+  MessageCircle,
 } from "lucide-react";
 import {
   getRooms,
@@ -86,6 +88,8 @@ const labels: Record<string, Record<string, string>> = {
     october: "Október",
     november: "November",
     december: "December",
+    addToCalendar: "Pridať do kalendára",
+    shareWhatsApp: "Zdieľať cez WhatsApp",
   },
   hu: {
     title: "Foglalás",
@@ -143,6 +147,8 @@ const labels: Record<string, Record<string, string>> = {
     october: "Október",
     november: "November",
     december: "December",
+    addToCalendar: "Hozzáadás a naptárhoz",
+    shareWhatsApp: "Megosztás WhatsAppon",
   },
   de: {
     title: "Reservierung",
@@ -200,6 +206,8 @@ const labels: Record<string, Record<string, string>> = {
     october: "Oktober",
     november: "November",
     december: "Dezember",
+    addToCalendar: "Zum Kalender hinzufügen",
+    shareWhatsApp: "Auf WhatsApp teilen",
   },
   en: {
     title: "Reservation",
@@ -257,6 +265,8 @@ const labels: Record<string, Record<string, string>> = {
     october: "October",
     november: "November",
     december: "December",
+    addToCalendar: "Add to Calendar",
+    shareWhatsApp: "Share on WhatsApp",
   },
 };
 
@@ -1282,6 +1292,7 @@ export default function ReservationPage() {
               transition={pageTransition}
             >
               <div className="card max-w-lg mx-auto text-center py-12 px-8">
+                {/* Animated checkmark with gold glow */}
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
@@ -1291,21 +1302,54 @@ export default function ReservationPage() {
                     damping: 15,
                     delay: 0.2,
                   }}
-                  className="w-20 h-20 rounded-full bg-euphoria-gold/20 border-2 border-euphoria-gold flex items-center justify-center mx-auto mb-6"
+                  className="relative w-24 h-24 mx-auto mb-6"
                 >
-                  <Check size={36} className="text-euphoria-gold" />
+                  <motion.div
+                    animate={{
+                      boxShadow: [
+                        "0 0 20px rgba(212, 175, 55, 0.2), 0 0 40px rgba(212, 175, 55, 0.1)",
+                        "0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2)",
+                        "0 0 20px rgba(212, 175, 55, 0.2), 0 0 40px rgba(212, 175, 55, 0.1)",
+                      ],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-24 h-24 rounded-full bg-euphoria-gold/20 border-2 border-euphoria-gold flex items-center justify-center"
+                  >
+                    <motion.div
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: 1 }}
+                      transition={{ delay: 0.5, duration: 0.5 }}
+                    >
+                      <Check size={40} className="text-euphoria-gold" strokeWidth={3} />
+                    </motion.div>
+                  </motion.div>
                 </motion.div>
 
-                <h2
+                <motion.h2
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
                   className="text-3xl text-euphoria-cream mb-3"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {t.successTitle}
-                </h2>
-                <p className="text-euphoria-muted mb-6">{t.successMsg}</p>
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="text-euphoria-muted mb-6"
+                >
+                  {t.successMsg}
+                </motion.p>
 
                 {/* Summary */}
-                <div className="text-left space-y-3 bg-euphoria-black/50 rounded-sm p-5 border border-euphoria-gray/20 mb-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7 }}
+                  className="text-left space-y-3 bg-euphoria-black/50 rounded-sm p-5 border border-euphoria-gray/20 mb-6"
+                >
                   <div className="flex justify-between text-base">
                     <span className="text-euphoria-muted">{t.step1}</span>
                     <span className="text-white">{selectedRoom?.name}</span>
@@ -1343,18 +1387,100 @@ export default function ReservationPage() {
                       {selectedRoom?.price_per_slot}€
                     </span>
                   </div>
-                </div>
+                </motion.div>
 
-                <p className="text-euphoria-muted text-base mb-8">
-                  {t.successDetail}
-                </p>
-
-                <button
-                  onClick={resetReservation}
-                  className="btn-secondary text-base px-8 py-3"
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.8 }}
+                  className="text-euphoria-muted text-base mb-6"
                 >
-                  {t.backToCalendar}
-                </button>
+                  {t.successDetail}
+                </motion.p>
+
+                {/* Action buttons: Add to Calendar + Share WhatsApp */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9 }}
+                  className="flex flex-col sm:flex-row gap-3 justify-center mb-6"
+                >
+                  <button
+                    onClick={() => {
+                      if (!selectedDate || !selectedSlot || !selectedRoom) return;
+                      const startParts = selectedSlot.start_time.split(":");
+                      const endParts = selectedSlot.end_time.split(":");
+                      const startDate = new Date(selectedDate + "T12:00:00");
+                      startDate.setHours(parseInt(startParts[0]), parseInt(startParts[1]), 0);
+                      const endDate = new Date(selectedDate + "T12:00:00");
+                      endDate.setHours(parseInt(endParts[0]), parseInt(endParts[1]), 0);
+                      // If end time is before start time, it's next day
+                      if (endDate <= startDate) {
+                        endDate.setDate(endDate.getDate() + 1);
+                      }
+                      const pad = (n: number) => n.toString().padStart(2, "0");
+                      const formatICS = (d: Date) =>
+                        `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`;
+                      const icsContent = [
+                        "BEGIN:VCALENDAR",
+                        "VERSION:2.0",
+                        "PRODID:-//Euphoria Night Club//Reservation//EN",
+                        "BEGIN:VEVENT",
+                        `DTSTART:${formatICS(startDate)}`,
+                        `DTEND:${formatICS(endDate)}`,
+                        `SUMMARY:Euphoria Night Club - ${selectedRoom.name}`,
+                        `DESCRIPTION:Reservation for ${formData.guests} guests at ${selectedRoom.name}`,
+                        "LOCATION:Bratislavská 11\\, 931 01 Šamorín\\, Slovakia",
+                        `ORGANIZER:mailto:euphorianightclub11@gmail.com`,
+                        "END:VEVENT",
+                        "END:VCALENDAR",
+                      ].join("\r\n");
+                      const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+                      const url = URL.createObjectURL(blob);
+                      const a = document.createElement("a");
+                      a.href = url;
+                      a.download = "euphoria-reservation.ics";
+                      a.click();
+                      URL.revokeObjectURL(url);
+                    }}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-euphoria-gold/40 text-euphoria-gold hover:bg-euphoria-gold/10 transition-all duration-300 text-sm font-ui uppercase tracking-wider"
+                  >
+                    <CalendarPlus size={18} />
+                    {t.addToCalendar}
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      if (!selectedDate || !selectedSlot || !selectedRoom) return;
+                      const dateFormatted = new Date(selectedDate + "T12:00:00").toLocaleDateString(
+                        locale === "sk" ? "sk-SK" : locale === "hu" ? "hu-HU" : locale === "de" ? "de-DE" : "en-US",
+                        { day: "numeric", month: "long", year: "numeric" }
+                      );
+                      const timeFormatted = `${formatTime(selectedSlot.start_time)} - ${formatTime(selectedSlot.end_time)}`;
+                      const message = encodeURIComponent(
+                        `Euphoria Night Club\n${selectedRoom.name}\n${dateFormatted}\n${timeFormatted}\n${formData.guests} guests\nBratislavská 11, Šamorín`
+                      );
+                      window.open(`https://wa.me/?text=${message}`, "_blank");
+                    }}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-green-600/40 text-green-500 hover:bg-green-600/10 transition-all duration-300 text-sm font-ui uppercase tracking-wider"
+                  >
+                    <MessageCircle size={18} />
+                    {t.shareWhatsApp}
+                  </button>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.0 }}
+                >
+                  <button
+                    onClick={resetReservation}
+                    className="btn-secondary text-base px-8 py-3"
+                  >
+                    {t.backToCalendar}
+                  </button>
+                </motion.div>
               </div>
             </motion.div>
           )}

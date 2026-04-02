@@ -2,7 +2,7 @@ import { Locale, getDictionary } from "@/lib/i18n";
 import VideoHero from "@/components/home/VideoHero";
 import MenuTabs from "@/components/home/MenuTabs";
 import Link from "next/link";
-import { Calendar, Wine, Music, Sparkles } from "lucide-react";
+import { Calendar, Wine, Music, Sparkles, Cake, Clock, Heart } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import type { Metadata } from "next";
 
@@ -356,6 +356,179 @@ export default async function HomePage({
               <Link href={`/${locale}/events`} className="btn-secondary">
                 {locale === "sk" ? "Všetky eventy" : locale === "hu" ? "Összes rendezvény" : locale === "de" ? "Alle Events" : "All events"}
               </Link>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* ─── SPECIAL OFFERS SECTION ─── */}
+      <ScrollReveal delay={100}>
+        <section
+          className="py-28 px-6 relative"
+          style={{
+            background: `
+              radial-gradient(ellipse at 40% 50%, rgba(196, 30, 42, 0.06) 0%, transparent 60%),
+              linear-gradient(180deg, var(--black) 0%, var(--deep-red-bg) 50%, var(--black) 100%)
+            `,
+          }}
+        >
+          <div className="max-w-[1200px] mx-auto relative z-10">
+            <div className="section-header">
+              <h2>
+                {locale === "sk" ? "Speciálne ponuky" :
+                 locale === "hu" ? "Különleges ajánlatok" :
+                 locale === "de" ? "Spezielle Angebote" :
+                 "Special Offers"}
+              </h2>
+              <p>
+                {locale === "sk" ? "Exkluzívne ponuky len pre vás" :
+                 locale === "hu" ? "Exkluzív ajánlatok csak Önnek" :
+                 locale === "de" ? "Exklusive Angebote nur für Sie" :
+                 "Exclusive offers just for you"}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Birthday Package */}
+              <ScrollReveal delay={0}>
+                <div
+                  className="relative p-6 text-center group transition-all duration-500 hover:translate-y-[-5px]"
+                  style={{
+                    background: "var(--glass-bg)",
+                    border: "1px solid transparent",
+                    borderImage: "linear-gradient(135deg, var(--gold), rgba(212, 175, 55, 0.2), var(--gold)) 1",
+                    borderRadius: "0px",
+                    backdropFilter: "blur(12px)",
+                    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.1)",
+                  }}
+                >
+                  <div className="flex justify-center mb-5">
+                    <div
+                      className="w-16 h-16 flex items-center justify-center rounded-full"
+                      style={{
+                        background: "linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(196, 30, 42, 0.1))",
+                        border: "1px solid rgba(212, 175, 55, 0.25)",
+                      }}
+                    >
+                      <Cake size={28} style={{ color: "var(--gold)" }} />
+                    </div>
+                  </div>
+                  <h3
+                    className="text-xl uppercase tracking-wider mb-3"
+                    style={{ fontFamily: "var(--font-heading)", color: "var(--cream)" }}
+                  >
+                    {locale === "sk" ? "Narodeninový balíček" :
+                     locale === "hu" ? "Születésnapi csomag" :
+                     locale === "de" ? "Geburtstagspaket" :
+                     "Birthday Package"}
+                  </h3>
+                  <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
+                    {locale === "sk" ? "VIP izba + fľaša šampanského zadarmo" :
+                     locale === "hu" ? "VIP szoba + egy üveg pezsgő ingyen" :
+                     locale === "de" ? "VIP-Zimmer + eine Flasche Champagner gratis" :
+                     "VIP room + free bottle of champagne"}
+                  </p>
+                  <Link
+                    href={`/${locale}/reservation`}
+                    className="inline-block text-sm uppercase tracking-wider hover:text-[var(--light-gold)] transition-colors"
+                    style={{ fontFamily: "var(--font-ui)", color: "var(--gold)", letterSpacing: "0.1em" }}
+                  >
+                    {locale === "sk" ? "Rezervovať" : locale === "hu" ? "Foglalás" : locale === "de" ? "Reservieren" : "Reserve"} &rarr;
+                  </Link>
+                </div>
+              </ScrollReveal>
+
+              {/* Happy Hour */}
+              <ScrollReveal delay={100}>
+                <div
+                  className="relative p-6 text-center group transition-all duration-500 hover:translate-y-[-5px]"
+                  style={{
+                    background: "var(--glass-bg)",
+                    border: "1px solid transparent",
+                    borderImage: "linear-gradient(135deg, var(--gold), rgba(212, 175, 55, 0.2), var(--gold)) 1",
+                    borderRadius: "0px",
+                    backdropFilter: "blur(12px)",
+                    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.1)",
+                  }}
+                >
+                  <div className="flex justify-center mb-5">
+                    <div
+                      className="w-16 h-16 flex items-center justify-center rounded-full"
+                      style={{
+                        background: "linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(196, 30, 42, 0.1))",
+                        border: "1px solid rgba(212, 175, 55, 0.25)",
+                      }}
+                    >
+                      <Clock size={28} style={{ color: "var(--gold)" }} />
+                    </div>
+                  </div>
+                  <h3
+                    className="text-xl uppercase tracking-wider mb-3"
+                    style={{ fontFamily: "var(--font-heading)", color: "var(--cream)" }}
+                  >
+                    Happy Hour
+                  </h3>
+                  <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
+                    {locale === "sk" ? "Každý deň 19:00 – 21:00, 30% zľava na drinky" :
+                     locale === "hu" ? "Minden nap 19:00 – 21:00, 30% kedvezmény az italokra" :
+                     locale === "de" ? "Täglich 19:00 – 21:00, 30% Rabatt auf Getränke" :
+                     "Every day 19:00 – 21:00, 30% off drinks"}
+                  </p>
+                  <Link
+                    href={`/${locale}/reservation`}
+                    className="inline-block text-sm uppercase tracking-wider hover:text-[var(--light-gold)] transition-colors"
+                    style={{ fontFamily: "var(--font-ui)", color: "var(--gold)", letterSpacing: "0.1em" }}
+                  >
+                    {locale === "sk" ? "Rezervovať" : locale === "hu" ? "Foglalás" : locale === "de" ? "Reservieren" : "Reserve"} &rarr;
+                  </Link>
+                </div>
+              </ScrollReveal>
+
+              {/* Ladies Night */}
+              <ScrollReveal delay={200}>
+                <div
+                  className="relative p-6 text-center group transition-all duration-500 hover:translate-y-[-5px]"
+                  style={{
+                    background: "var(--glass-bg)",
+                    border: "1px solid transparent",
+                    borderImage: "linear-gradient(135deg, var(--gold), rgba(212, 175, 55, 0.2), var(--gold)) 1",
+                    borderRadius: "0px",
+                    backdropFilter: "blur(12px)",
+                    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.1)",
+                  }}
+                >
+                  <div className="flex justify-center mb-5">
+                    <div
+                      className="w-16 h-16 flex items-center justify-center rounded-full"
+                      style={{
+                        background: "linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(196, 30, 42, 0.1))",
+                        border: "1px solid rgba(212, 175, 55, 0.25)",
+                      }}
+                    >
+                      <Heart size={28} style={{ color: "var(--gold)" }} />
+                    </div>
+                  </div>
+                  <h3
+                    className="text-xl uppercase tracking-wider mb-3"
+                    style={{ fontFamily: "var(--font-heading)", color: "var(--cream)" }}
+                  >
+                    Ladies Night
+                  </h3>
+                  <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
+                    {locale === "sk" ? "Každý štvrtok — vstup pre dámy zadarmo" :
+                     locale === "hu" ? "Minden csütörtökön — ingyenes belépés hölgyeknek" :
+                     locale === "de" ? "Jeden Donnerstag — freier Eintritt für Damen" :
+                     "Every Thursday — free entry for ladies"}
+                  </p>
+                  <Link
+                    href={`/${locale}/reservation`}
+                    className="inline-block text-sm uppercase tracking-wider hover:text-[var(--light-gold)] transition-colors"
+                    style={{ fontFamily: "var(--font-ui)", color: "var(--gold)", letterSpacing: "0.1em" }}
+                  >
+                    {locale === "sk" ? "Rezervovať" : locale === "hu" ? "Foglalás" : locale === "de" ? "Reservieren" : "Reserve"} &rarr;
+                  </Link>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>

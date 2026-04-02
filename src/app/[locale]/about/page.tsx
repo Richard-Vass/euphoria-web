@@ -1,5 +1,6 @@
 import { Locale, getDictionary } from "@/lib/i18n";
 import { Star, Users, Music, Sparkles } from "lucide-react";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -39,10 +40,10 @@ export default async function AboutPage({
   const dict = await getDictionary(locale as Locale);
 
   const stats = [
-    { icon: Star, value: "5★", label: locale === "sk" ? "Hodnotenie" : locale === "hu" ? "Értékelés" : locale === "de" ? "Bewertung" : "Rating" },
-    { icon: Users, value: "500+", label: locale === "sk" ? "Kapacita" : locale === "hu" ? "Kapacitás" : locale === "de" ? "Kapazität" : "Capacity" },
-    { icon: Music, value: "50+", label: locale === "sk" ? "DJs ročne" : locale === "hu" ? "DJ évente" : locale === "de" ? "DJs jährlich" : "DJs yearly" },
-    { icon: Sparkles, value: "200+", label: locale === "sk" ? "Eventov" : locale === "hu" ? "Esemény" : locale === "de" ? "Events" : "Events" },
+    { icon: Star, target: 5, suffix: "★", label: locale === "sk" ? "Hodnotenie" : locale === "hu" ? "Értékelés" : locale === "de" ? "Bewertung" : "Rating" },
+    { icon: Users, target: 500, suffix: "+", label: locale === "sk" ? "Kapacita" : locale === "hu" ? "Kapacitás" : locale === "de" ? "Kapazität" : "Capacity" },
+    { icon: Music, target: 50, suffix: "+", label: locale === "sk" ? "DJs ročne" : locale === "hu" ? "DJ évente" : locale === "de" ? "DJs jährlich" : "DJs yearly" },
+    { icon: Sparkles, target: 200, suffix: "+", label: locale === "sk" ? "Eventov" : locale === "hu" ? "Esemény" : locale === "de" ? "Events" : "Events" },
   ];
 
   return (
@@ -71,10 +72,12 @@ export default async function AboutPage({
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map(({ icon: Icon, value, label }) => (
+          {stats.map(({ icon: Icon, target, suffix, label }) => (
             <div key={label} className="card text-center py-8">
               <Icon size={36} className="text-euphoria-gold mx-auto mb-3" />
-              <div className="text-3xl font-heading font-bold mb-1">{value}</div>
+              <div className="text-3xl font-heading font-bold mb-1">
+                <AnimatedCounter target={target} suffix={suffix} />
+              </div>
               <div className="text-euphoria-muted text-sm uppercase tracking-wider">
                 {label}
               </div>

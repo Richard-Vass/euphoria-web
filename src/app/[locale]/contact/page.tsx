@@ -137,6 +137,29 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+
+        {/* Google Maps */}
+        <div className="mt-16">
+          <div
+            className="w-full overflow-hidden"
+            style={{
+              border: "2px solid var(--gold)",
+              borderRadius: "12px",
+              boxShadow: "0 8px 30px rgba(212, 175, 55, 0.15)",
+            }}
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.5!2d17.3111!3d48.0258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c40e0a5c2e1f1%3A0x0!2sBratislavsk%C3%A1%2011%2C%20931%2001%20%C5%A0amor%C3%ADn!5e0!3m2!1s{locale}!2ssk!4v1700000000000"
+              width="100%"
+              height="400"
+              style={{ border: 0, display: "block", filter: "invert(90%) hue-rotate(180deg) brightness(0.95) contrast(1.2)" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={t.address}
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
