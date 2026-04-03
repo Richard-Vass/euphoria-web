@@ -24,7 +24,7 @@ const EVENT_TYPES = [
   "Themed Party",
   "Live Music",
   "Ladies Night",
-  "VIP Event",
+  "Premium Event",
   "Special",
   "Other",
 ];

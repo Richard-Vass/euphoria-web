@@ -61,12 +61,12 @@ export default async function AboutPage({
           </h2>
           <p className="text-euphoria-muted text-sm max-w-2xl mx-auto leading-relaxed">
             {locale === "sk"
-              ? "Euphoria Night Club je miesto, kde sa stretáva luxus s energiou nočného života. Naším cieľom je vytvoriť nezabudnuteľné zážitky pre každého hosťa — od VIP izieb po tanečný parket."
+              ? "Euphoria Night Club je miesto, kde sa stretáva luxus s diskrétnou atmosférou. Naším cieľom je vytvoriť nezabudnuteľné zážitky pre každého hosťa — privátne izby, prémiový servis a absolútna diskrétnosť."
               : locale === "hu"
-              ? "Az Euphoria Night Club az a hely, ahol a luxus találkozik az éjszakai élet energiájával. Célunk minden vendég számára felejthetetlen élményeket teremteni — a VIP szobáktól a tánctérig."
+              ? "Az Euphoria Night Club az a hely, ahol a luxus találkozik a diszkrét hangulattal. Célunk minden vendég számára felejthetetlen élményeket teremteni — privát szobák, prémium szolgáltatás és teljes diszkréció."
               : locale === "de"
-              ? "Der Euphoria Night Club ist ein Ort, an dem Luxus auf die Energie des Nachtlebens trifft. Unser Ziel ist es, unvergessliche Erlebnisse für jeden Gast zu schaffen — von VIP-Zimmern bis zur Tanzfläche."
-              : "Euphoria Night Club is where luxury meets the energy of nightlife. Our goal is to create unforgettable experiences for every guest — from VIP rooms to the dance floor."}
+              ? "Der Euphoria Night Club ist ein Ort, an dem Luxus auf diskrete Atmosphäre trifft. Unser Ziel ist es, unvergessliche Erlebnisse für jeden Gast zu schaffen — private Zimmer, Premium-Service und absolute Diskretion."
+              : "Euphoria Night Club is where luxury meets discreet atmosphere. Our goal is to create unforgettable experiences for every guest — private rooms, premium service and absolute discretion."}
           </p>
         </div>
 

@@ -20,10 +20,10 @@ export async function generateMetadata({
     en: "Euphoria Night Club | Šamorín",
   };
   const descriptions: Record<string, string> = {
-    sk: "Exkluzívny pánsky bar v Šamoríne. VIP izby, prémiové koktaily, diskrétna atmosféra.",
-    hu: "Luxus éjszakai klub Somorján. VIP szobák, prémium koktélok, felejthetetlen esti események.",
-    de: "Exklusive Gentlemen's Bar in Šamorín. VIP-Zimmer, Premium-Cocktails, diskrete Atmosphäre.",
-    en: "Exclusive gentlemen's bar in Šamorín. VIP rooms, premium cocktails, discreet atmosphere.",
+    sk: "Exkluzívny pánsky bar v Šamoríne. Privátne izby, prémiové koktaily, diskrétna atmosféra.",
+    hu: "Exkluzív úri bár Somorján. Privát szobák, prémium koktélok, diszkrét hangulat.",
+    de: "Exklusive Gentlemen's Bar in Šamorín. Privatzimmer, Premium-Cocktails, diskrete Atmosphäre.",
+    en: "Exclusive gentlemen's bar in Šamorín. Private rooms, premium cocktails, discreet atmosphere.",
   };
   const title = titles[locale] || titles.en;
   const description = descriptions[locale] || descriptions.en;
@@ -101,13 +101,16 @@ export default async function HomePage({
                       className="text-xl uppercase tracking-wider"
                       style={{ fontFamily: "var(--font-heading)", color: "var(--cream)" }}
                     >
-                      VIP
+                      {locale === "sk" ? "Privátna izba" :
+                       locale === "hu" ? "Privát szoba" :
+                       locale === "de" ? "Privatzimmer" :
+                       "Private Room"}
                     </h3>
                     <p className="text-sm" style={{ color: "var(--light-gray)" }}>
-                      {locale === "sk" ? "VIP izby, bottle service a exkluzívny zážitok" :
-                       locale === "hu" ? "VIP szobák, palack szervíz és exkluzív élmény" :
-                       locale === "de" ? "VIP-Zimmer, Flaschenservice und exklusives Erlebnis" :
-                       "VIP rooms, bottle service and an exclusive experience"}
+                      {locale === "sk" ? "Diskrétna privátna izba pre váš súkromný zážitok" :
+                       locale === "hu" ? "Diszkrét privát szoba az Ön privát élményéhez" :
+                       locale === "de" ? "Diskretes Privatzimmer für Ihr privates Erlebnis" :
+                       "Discreet private room for your personal experience"}
                     </p>
                   </div>
                 </Link>
@@ -265,7 +268,7 @@ export default async function HomePage({
                           borderRadius: "2px",
                         }}
                       >
-                        VIP
+                        Premium
                       </span>
                       <span className="text-sm" style={{ color: "var(--light-gray)" }}>
                         {locale === "sk" ? "Sobota" : locale === "hu" ? "Szombat" : locale === "de" ? "Samstag" : "Saturday"}
@@ -278,10 +281,10 @@ export default async function HomePage({
                       Gold & Glamour
                     </h3>
                     <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
-                      {locale === "sk" ? "Exkluzívna VIP noc s bottle service a prémiovými koktailmi." :
-                       locale === "hu" ? "Exkluzív VIP est palack szervízzel és prémium koktélokkal." :
-                       locale === "de" ? "Exklusive VIP-Nacht mit Flaschenservice und Premium-Cocktails." :
-                       "Exclusive VIP night with bottle service and premium cocktails."}
+                      {locale === "sk" ? "Exkluzívna noc s bottle service a prémiovými koktailmi." :
+                       locale === "hu" ? "Exkluzív est palack szervízzel és prémium koktélokkal." :
+                       locale === "de" ? "Exklusive Nacht mit Flaschenservice und Premium-Cocktails." :
+                       "Exclusive night with bottle service and premium cocktails."}
                     </p>
                     <Link
                       href={`/${locale}/events`}
@@ -427,10 +430,10 @@ export default async function HomePage({
                      "Birthday Package"}
                   </h3>
                   <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
-                    {locale === "sk" ? "VIP izba + fľaša šampanského zadarmo" :
-                     locale === "hu" ? "VIP szoba + egy üveg pezsgő ingyen" :
-                     locale === "de" ? "VIP-Zimmer + eine Flasche Champagner gratis" :
-                     "VIP room + free bottle of champagne"}
+                    {locale === "sk" ? "Privátna izba + fľaša šampanského zadarmo" :
+                     locale === "hu" ? "Privát szoba + egy üveg pezsgő ingyen" :
+                     locale === "de" ? "Privatzimmer + eine Flasche Champagner gratis" :
+                     "Private room + free bottle of champagne"}
                   </p>
                   <Link
                     href={`/${locale}/reservation`}
@@ -488,7 +491,7 @@ export default async function HomePage({
                 </div>
               </ScrollReveal>
 
-              {/* VIP Bottle Service */}
+              {/* Bottle Service */}
               <ScrollReveal delay={200}>
                 <div
                   className="relative p-6 text-center group transition-all duration-500 hover:translate-y-[-5px]"
@@ -516,13 +519,13 @@ export default async function HomePage({
                     className="text-xl uppercase tracking-wider mb-3"
                     style={{ fontFamily: "var(--font-heading)", color: "var(--cream)" }}
                   >
-                    VIP Bottle Service
+                    Bottle Service
                   </h3>
                   <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
-                    {locale === "sk" ? "Prémiová fľaša k VIP izbe — diskrétny servis na úrovni" :
-                     locale === "hu" ? "Prémium palack a VIP szobához — diszkrét, magas szintű szolgáltatás" :
-                     locale === "de" ? "Premium-Flasche zum VIP-Zimmer — diskreter Service auf höchstem Niveau" :
-                     "Premium bottle with VIP room — discreet top-level service"}
+                    {locale === "sk" ? "Prémiová fľaša k privátnej izbe — diskrétny servis na úrovni" :
+                     locale === "hu" ? "Prémium palack a privát szobához — diszkrét, magas szintű szolgáltatás" :
+                     locale === "de" ? "Premium-Flasche zum Privatzimmer — diskreter Service auf höchstem Niveau" :
+                     "Premium bottle with private room — discreet top-level service"}
                   </p>
                   <Link
                     href={`/${locale}/reservation`}
@@ -552,16 +555,16 @@ export default async function HomePage({
           <div className="relative z-10 max-w-3xl mx-auto text-center">
             <div className="section-header">
               <h2>
-                {locale === "sk" ? "Rezervuj si VIP izbu" :
-                 locale === "hu" ? "Foglald le a VIP szobát" :
-                 locale === "de" ? "Reserviere dein VIP-Zimmer" :
-                 "Reserve your VIP room"}
+                {locale === "sk" ? "Rezervuj si privátnu izbu" :
+                 locale === "hu" ? "Foglaljon privát szobát" :
+                 locale === "de" ? "Reservieren Sie ein Privatzimmer" :
+                 "Reserve a private room"}
               </h2>
               <p>
-                {locale === "sk" ? "VIP izby, bottle service a nezabudnuteľný zážitok. Rezervuj teraz a zabezpeč si miesto." :
-                 locale === "hu" ? "VIP szobák, palack szervíz és felejthetetlen élmény. Foglalj most és biztosítsd a helyed." :
-                 locale === "de" ? "VIP-Zimmer, Flaschenservice und unvergessliches Erlebnis. Jetzt reservieren." :
-                 "VIP rooms, bottle service and an unforgettable experience. Reserve now and secure your spot."}
+                {locale === "sk" ? "Diskrétna privátna izba, maximálne súkromie. Rezervuj teraz." :
+                 locale === "hu" ? "Diszkrét privát szoba, maximális magánélet. Foglaljon most." :
+                 locale === "de" ? "Diskretes Privatzimmer, maximale Privatsphäre. Jetzt reservieren." :
+                 "Discreet private room, maximum privacy. Reserve now."}
               </p>
             </div>
             <Link href={`/${locale}/reservation`} className="btn-primary">

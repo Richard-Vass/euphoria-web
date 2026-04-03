@@ -33,8 +33,8 @@ import {
 
 const labels: Record<string, Record<string, string>> = {
   sk: {
-    title: "Rezervácia",
-    subtitle: "Rezervujte si VIP izbu v Euphoria Night Club",
+    title: "Rezervácia privátnej izby",
+    subtitle: "Rezervujte si privátnu izbu v Euphoria",
     step1: "Izba",
     step2: "Dátum",
     step3: "Čas",
@@ -63,8 +63,8 @@ const labels: Record<string, Record<string, string>> = {
     totalPrice: "Celková cena",
     submit: "Odoslať rezerváciu",
     submitting: "Odosielam...",
-    successTitle: "Rezervácia odoslaná!",
-    successMsg: "Ozveme sa vám na potvrdenie rezervácie.",
+    successTitle: "Rezervácia potvrdená!",
+    successMsg: "Vaša rezervácia bola automaticky potvrdená.",
     successDetail: "Detaily rezervácie boli zaslané na váš email.",
     backToCalendar: "Nová rezervácia",
     back: "Späť",
@@ -92,8 +92,8 @@ const labels: Record<string, Record<string, string>> = {
     shareWhatsApp: "Zdieľať cez WhatsApp",
   },
   hu: {
-    title: "Foglalás",
-    subtitle: "Foglaljon VIP szobát az Euphoria Night Clubban",
+    title: "Privát szoba foglalás",
+    subtitle: "Foglaljon privát szobát az Euphoriában",
     step1: "Szoba",
     step2: "Dátum",
     step3: "Idő",
@@ -122,8 +122,8 @@ const labels: Record<string, Record<string, string>> = {
     totalPrice: "Teljes ár",
     submit: "Foglalás elküldése",
     submitting: "Küldés...",
-    successTitle: "Foglalás elküldve!",
-    successMsg: "Hamarosan jelentkezünk a foglalás megerősítésével.",
+    successTitle: "Foglalás megerősítve!",
+    successMsg: "Az Ön foglalása automatikusan megerősítésre került.",
     successDetail: "A foglalás részleteit elküldtük az Ön email címére.",
     backToCalendar: "Új foglalás",
     back: "Vissza",
@@ -151,8 +151,8 @@ const labels: Record<string, Record<string, string>> = {
     shareWhatsApp: "Megosztás WhatsAppon",
   },
   de: {
-    title: "Reservierung",
-    subtitle: "Reservieren Sie ein VIP-Zimmer im Euphoria Night Club",
+    title: "Privatzimmer-Reservierung",
+    subtitle: "Reservieren Sie ein Privatzimmer in der Euphoria",
     step1: "Zimmer",
     step2: "Datum",
     step3: "Zeit",
@@ -181,8 +181,8 @@ const labels: Record<string, Record<string, string>> = {
     totalPrice: "Gesamtpreis",
     submit: "Reservierung absenden",
     submitting: "Senden...",
-    successTitle: "Reservierung gesendet!",
-    successMsg: "Wir melden uns bei Ihnen zur Bestätigung.",
+    successTitle: "Reservierung bestätigt!",
+    successMsg: "Ihre Reservierung wurde automatisch bestätigt.",
     successDetail: "Die Reservierungsdetails wurden an Ihre E-Mail gesendet.",
     backToCalendar: "Neue Reservierung",
     back: "Zurück",
@@ -210,8 +210,8 @@ const labels: Record<string, Record<string, string>> = {
     shareWhatsApp: "Auf WhatsApp teilen",
   },
   en: {
-    title: "Reservation",
-    subtitle: "Reserve a VIP room at Euphoria Night Club",
+    title: "Private Room Reservation",
+    subtitle: "Reserve a private room at Euphoria",
     step1: "Room",
     step2: "Date",
     step3: "Time",
@@ -240,8 +240,8 @@ const labels: Record<string, Record<string, string>> = {
     totalPrice: "Total price",
     submit: "Submit reservation",
     submitting: "Submitting...",
-    successTitle: "Reservation submitted!",
-    successMsg: "We will contact you to confirm the reservation.",
+    successTitle: "Reservation confirmed!",
+    successMsg: "Your reservation has been automatically confirmed.",
     successDetail: "Reservation details have been sent to your email.",
     backToCalendar: "New reservation",
     back: "Back",
@@ -1193,28 +1193,8 @@ export default function ReservationPage() {
                       className="w-full bg-euphoria-dark border border-euphoria-gray/30 px-4 py-3 text-base text-white placeholder:text-euphoria-muted focus:border-euphoria-gold focus:outline-none transition-colors rounded-sm"
                     />
                   </div>
-                  <div>
-                    <label
-                      className="block text-xs text-euphoria-muted mb-2 uppercase tracking-wider"
-                      style={{ fontFamily: "var(--font-ui)" }}
-                    >
-                      {t.guestsCount} *
-                    </label>
-                    <input
-                      type="number"
-                      required
-                      min={1}
-                      max={selectedRoom?.capacity || 10}
-                      value={formData.guests}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          guests: parseInt(e.target.value) || 1,
-                        })
-                      }
-                      className="w-full bg-euphoria-dark border border-euphoria-gray/30 px-4 py-3 text-base text-white placeholder:text-euphoria-muted focus:border-euphoria-gold focus:outline-none transition-colors rounded-sm"
-                    />
-                  </div>
+                  {/* Guests count je fixne 2 pre privatnu izbu */}
+                  <input type="hidden" value={2} />
                 </div>
 
                 <div>

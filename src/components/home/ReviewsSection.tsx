@@ -13,10 +13,10 @@ const reviews = [
     initial: "V",
     rating: 5,
     text: {
-      sk: "Výborná atmosféra a diskrétny servis. VIP izba bola na úrovni, koktaily špičkové. Presne to, čo som hľadal. Vrátim sa!",
-      hu: "Kiváló hangulat és diszkrét kiszolgálás. A VIP szoba magas színvonalú volt, a koktélok csúcsminőségűek. Visszatérek!",
-      de: "Ausgezeichnete Atmosphäre und diskreter Service. Das VIP-Zimmer war erstklassig, die Cocktails hervorragend. Ich komme wieder!",
-      en: "Excellent atmosphere and discreet service. The VIP room was top-notch, cocktails superb. Exactly what I was looking for. I'll be back!",
+      sk: "Výborná atmosféra a diskrétny servis. Privátna izba bola na úrovni, koktaily špičkové. Presne to, čo som hľadal. Vrátim sa!",
+      hu: "Kiváló hangulat és diszkrét kiszolgálás. A privát szoba magas színvonalú volt, a koktélok csúcsminőségűek. Visszatérek!",
+      de: "Ausgezeichnete Atmosphäre und diskreter Service. Das Privatzimmer war erstklassig, die Cocktails hervorragend. Ich komme wieder!",
+      en: "Excellent atmosphere and discreet service. The private room was top-notch, cocktails superb. Exactly what I was looking for. I'll be back!",
     },
   },
   {
@@ -31,14 +31,14 @@ const reviews = [
     },
   },
   {
-    name: { sk: "VIP klient", hu: "VIP ügyfél", de: "VIP-Kunde", en: "VIP Client" },
+    name: { sk: "Prémiový hosť", hu: "Prémium vendég", de: "Premium-Gast", en: "Premium Guest" },
     initial: "E",
     rating: 5,
     text: {
-      sk: "VIP bottle service bol na úrovni. Diskrétne, elegantné a profesionálne. Odporúčam každému, kto hľadá niečo exkluzívne.",
-      hu: "A VIP palack szervíz magas színvonalú volt. Diszkrét, elegáns és professzionális. Ajánlom mindenkinek, aki valami exkluzívat keres.",
-      de: "Der VIP-Flaschenservice war erstklassig. Diskret, elegant und professionell. Empfehle es jedem, der etwas Exklusives sucht.",
-      en: "VIP bottle service was top class. Discreet, elegant and professional. I recommend it to anyone looking for something exclusive.",
+      sk: "Bottle service bol na úrovni. Diskrétne, elegantné a profesionálne. Odporúčam každému, kto hľadá niečo exkluzívne.",
+      hu: "A palack szervíz magas színvonalú volt. Diszkrét, elegáns és professzionális. Ajánlom mindenkinek, aki valami exkluzívat keres.",
+      de: "Der Flaschenservice war erstklassig. Diskret, elegant und professionell. Empfehle es jedem, der etwas Exklusives sucht.",
+      en: "Bottle service was top class. Discreet, elegant and professional. I recommend it to anyone looking for something exclusive.",
     },
   },
 ];

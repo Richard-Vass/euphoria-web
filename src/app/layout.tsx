@@ -8,13 +8,13 @@ export const metadata: Metadata = {
     template: "%s | Euphoria Night Club",
   },
   description:
-    "Exkluzívny pánsky bar v Šamoríne. VIP izby, prémiové koktaily, diskrétna atmosféra.",
+    "Exkluzívny pánsky bar v Šamoríne. Privátne izby, prémiové koktaily, diskrétna atmosféra.",
   keywords: [
     "gentlemen's bar",
     "pánsky bar",
     "Šamorín",
     "Somorja",
-    "VIP",
+    "privátne izby",
     "bar",
     "koktaily",
     "Euphoria",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Euphoria Night Club | Šamorín",
     description:
-      "Exkluzívny pánsky bar v Šamoríne. VIP izby, prémiové koktaily, diskrétna atmosféra.",
+      "Exkluzívny pánsky bar v Šamoríne. Privátne izby, prémiové koktaily, diskrétna atmosféra.",
     type: "website",
     siteName: "Euphoria Night Club",
     locale: "sk_SK",

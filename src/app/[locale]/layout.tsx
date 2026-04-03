@@ -52,7 +52,7 @@ export default async function LocaleLayout({
     "@context": "https://schema.org",
     "@type": "BarOrPub",
     name: "Euphoria Night Club",
-    description: "Exkluzívny pánsky bar v Šamoríne. VIP izby, prémiové koktaily, diskrétna atmosféra.",
+    description: "Exkluzívny pánsky bar v Šamoríne. Privátne izby, prémiové koktaily, diskrétna atmosféra.",
     url: `https://euphoria-web-gules.vercel.app/${locale}`,
     image: "https://euphoria-web-gules.vercel.app/images/logo-figure-dark.png",
     telephone: "+421 950 480 799",

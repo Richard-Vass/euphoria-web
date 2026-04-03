@@ -56,10 +56,10 @@ export interface CreateReservationData {
 
 const MOCK_ROOM: Room = {
   id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  name: "VIP Izba",
+  name: "Privátna izba",
   description:
-    "Exkluzivna VIP miestnost s privatnym barom a obsluhou. Kapacita az 10 hosti.",
-  capacity: 10,
+    "Diskrétna privátna izba pre dvoch. Maximálne súkromie a komfort.",
+  capacity: 2,
   price_per_slot: 200,
   image_url: null,
   is_active: true,
@@ -281,7 +281,10 @@ export async function createReservation(
       customer_phone: data.customer_phone,
       guests_count: data.guests_count,
       note: data.note || null,
-      status: "pending",
+      // NOTE: Auto-confirm pre privátnu izbu. Edge Function na Supabase
+      // (send-reservation-email) tiež referencuje room name — treba updatnúť
+      // Pozn.: Edge Function (send-reservation-email) referencuje room name "Privátna izba".
+      status: "confirmed",
     })
     .select("id")
     .single();

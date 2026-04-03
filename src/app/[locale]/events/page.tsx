@@ -85,10 +85,10 @@ const placeholderEvents: Event[] = [
   },
   {
     id: "3",
-    title: "VIP Friday",
+    title: "Premium Friday",
     date: "2026-04-29",
     dj: "DJ Elite",
-    type: "vip",
+    type: "premium",
     description: null,
     image_url: null,
     is_active: true,

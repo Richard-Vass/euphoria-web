@@ -1,7 +1,7 @@
 import { Locale } from "@/lib/i18n";
 
-export type EventType = "party" | "themed" | "vip" | "concert" | "special";
-export type TableType = "standard" | "vip" | "premium";
+export type EventType = "party" | "themed" | "premium" | "concert" | "special";
+export type TableType = "standard" | "private" | "premium";
 export type ReservationStatus = "pending" | "confirmed" | "cancelled";
 export type MediaType = "photo" | "video";
 

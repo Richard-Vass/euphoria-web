@@ -9,7 +9,7 @@ import {
   type GalleryImage,
 } from "@/lib/admin";
 
-const CATEGORIES = ["Interier", "Eventy", "VIP", "Koktaily", "Atmosfera", "Other"];
+const CATEGORIES = ["Interier", "Eventy", "Privátne izby", "Koktaily", "Atmosfera", "Other"];
 
 export default function GalleryPage() {
   const [images, setImages] = useState<GalleryImage[]>([]);

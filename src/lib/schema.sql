@@ -12,7 +12,7 @@ create extension if not exists "uuid-ossp";
 create type reservation_status as enum ('pending', 'confirmed', 'cancelled');
 
 -- ============================================
--- TABLE: rooms (VIP izby)
+-- TABLE: rooms (Privátne izby)
 -- ============================================
 create table rooms (
   id uuid primary key default uuid_generate_v4(),
@@ -137,13 +137,13 @@ create view reservation_availability as
 -- SEED DATA
 -- ============================================
 
--- 1 room: VIP Izba
+-- 1 room: Privátna izba
 insert into rooms (id, name, description, capacity, price_per_slot, is_active)
 values (
   'a1b2c3d4-e5f6-7890-abcd-ef1234567890',
-  'VIP Izba',
-  'Exkluzivna VIP miestnost s privatnym barom a obsluhou. Kapacita az 10 hosti.',
-  10,
+  'Privátna izba',
+  'Diskrétna privátna izba pre dvoch. Maximálne súkromie a komfort.',
+  2,
   200.00,
   true
 );
