@@ -93,7 +93,7 @@ const translations = {
   },
 };
 
-type LangKey = "sk" | "cs" | "hu" | "de" | "en";
+type LangKey = "sk" | "cz" | "hu" | "de" | "en";
 
 function t(obj: Record<string, string>, locale: string): string {
   return obj[locale as LangKey] || obj.en;

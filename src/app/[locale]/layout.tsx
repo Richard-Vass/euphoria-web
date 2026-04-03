@@ -105,7 +105,7 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col">
         <a href="#main-content" className="skip-to-content">
           {locale === "sk" ? "Preskočiť na obsah" :
-           locale === "cs" ? "Přeskočit na obsah" :
+           locale === "cz" ? "Přeskočit na obsah" :
            locale === "hu" ? "Ugrás a tartalomhoz" :
            locale === "de" ? "Zum Inhalt springen" :
            "Skip to content"}

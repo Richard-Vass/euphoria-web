@@ -178,7 +178,7 @@ export default function AgeGate({ locale }: AgeGateProps) {
                   letterSpacing: "0.1em",
                 }}
               >
-                &larr; {locale === "sk" ? "Odísť" : locale === "cs" ? "Odejít" : locale === "hu" ? "Kilépés" : locale === "de" ? "Verlassen" : "Leave"}
+                &larr; {locale === "sk" ? "Odísť" : locale === "cz" ? "Odejít" : locale === "hu" ? "Kilépés" : locale === "de" ? "Verlassen" : "Leave"}
               </a>
             </motion.div>
           )}

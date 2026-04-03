@@ -43,10 +43,10 @@ export default async function AboutPage({
   const dict = await getDictionary(locale as Locale);
 
   const stats = [
-    { icon: Star, target: 5, suffix: "★", label: locale === "sk" ? "Hodnotenie" : locale === "cs" ? "Hodnocení" : locale === "hu" ? "Értékelés" : locale === "de" ? "Bewertung" : "Rating" },
-    { icon: Users, target: 500, suffix: "+", label: locale === "sk" ? "Kapacita" : locale === "cs" ? "Kapacita" : locale === "hu" ? "Kapacitás" : locale === "de" ? "Kapazität" : "Capacity" },
-    { icon: Music, target: 50, suffix: "+", label: locale === "sk" ? "DJs ročne" : locale === "cs" ? "DJs ročně" : locale === "hu" ? "DJ évente" : locale === "de" ? "DJs jährlich" : "DJs yearly" },
-    { icon: Sparkles, target: 200, suffix: "+", label: locale === "sk" ? "Eventov" : locale === "cs" ? "Událostí" : locale === "hu" ? "Esemény" : locale === "de" ? "Events" : "Events" },
+    { icon: Star, target: 5, suffix: "★", label: locale === "sk" ? "Hodnotenie" : locale === "cz" ? "Hodnocení" : locale === "hu" ? "Értékelés" : locale === "de" ? "Bewertung" : "Rating" },
+    { icon: Users, target: 500, suffix: "+", label: locale === "sk" ? "Kapacita" : locale === "cz" ? "Kapacita" : locale === "hu" ? "Kapacitás" : locale === "de" ? "Kapazität" : "Capacity" },
+    { icon: Music, target: 50, suffix: "+", label: locale === "sk" ? "DJs ročne" : locale === "cz" ? "DJs ročně" : locale === "hu" ? "DJ évente" : locale === "de" ? "DJs jährlich" : "DJs yearly" },
+    { icon: Sparkles, target: 200, suffix: "+", label: locale === "sk" ? "Eventov" : locale === "cz" ? "Událostí" : locale === "hu" ? "Esemény" : locale === "de" ? "Events" : "Events" },
   ];
 
   return (
@@ -65,7 +65,7 @@ export default async function AboutPage({
           <p className="text-euphoria-muted text-sm max-w-2xl mx-auto leading-relaxed">
             {locale === "sk"
               ? "Euphoria Night Club je miesto, kde sa stretáva luxus s diskrétnou atmosférou. Naším cieľom je vytvoriť nezabudnuteľné zážitky pre každého hosťa — privátne izby, prémiový servis a absolútna diskrétnosť."
-              : locale === "cs"
+              : locale === "cz"
               ? "Euphoria Night Club je místo, kde se setkává luxus s diskrétní atmosférou. Naším cílem je vytvořit nezapomenutelné zážitky pro každého hosta — privátní pokoje, prémiový servis a absolutní diskrétnost."
               : locale === "hu"
               ? "Az Euphoria Night Club az a hely, ahol a luxus találkozik a diszkrét hangulattal. Célunk minden vendég számára felejthetetlen élményeket teremteni — privát szobák, prémium szolgáltatás és teljes diszkréció."
