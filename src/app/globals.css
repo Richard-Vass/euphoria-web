@@ -817,3 +817,171 @@ section + section::before {
     text-align: center;
   }
 }
+
+/* ==========================================================================
+   ACCESSIBILITY — Focus visible (gold outline for keyboard navigation)
+   ========================================================================== */
+
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="tab"]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.nav-cta:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.2);
+}
+
+/* ─── SKIP TO CONTENT ─── */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  padding: 0.8rem 2rem;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.2s ease;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  top: 0;
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   PRINT STYLESHEET
+   ========================================================================== */
+
+@media print {
+  /* White background, black text */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  * {
+    color: #000000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border-color: #cccccc !important;
+  }
+
+  /* Hide non-essential elements */
+  nav,
+  .mobile-menu-overlay,
+  footer,
+  .skip-to-content,
+  [aria-label="WhatsApp"],
+  [aria-label="Back to top"],
+  [class*="CookieConsent"],
+  [class*="cookie"],
+  .fixed {
+    display: none !important;
+  }
+
+  /* Keep the logo visible */
+  img[alt="Euphoria Night Club"] {
+    display: block !important;
+    max-width: 200px;
+    filter: none !important;
+    margin-bottom: 1rem;
+  }
+
+  /* Clean up reservation details */
+  .reservation-wrapper {
+    border: 1px solid #cccccc !important;
+    padding: 1.5rem !important;
+    backdrop-filter: none !important;
+    max-width: 100% !important;
+  }
+
+  .reservation-wrapper::before {
+    display: none !important;
+  }
+
+  /* Section backgrounds — remove */
+  section {
+    background: transparent !important;
+    padding: 1.5rem 0 !important;
+  }
+
+  section::before {
+    display: none !important;
+  }
+
+  /* Links — show URL */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666666 !important;
+  }
+
+  /* Hide decorative elements */
+  .hero-bg,
+  .hero-overlay,
+  .hero-vignette,
+  .particles,
+  .particle,
+  .gold-line {
+    display: none !important;
+  }
+
+  /* Form inputs readable */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    border: 1px solid #cccccc !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Remove animations */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Page breaks */
+  h2, h3 {
+    page-break-after: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Gold text — make readable in print */
+  .gold-text {
+    -webkit-text-fill-color: #000000 !important;
+    background: none !important;
+  }
+}

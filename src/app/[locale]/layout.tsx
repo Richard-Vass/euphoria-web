@@ -7,6 +7,7 @@ import BackToTop from "@/components/ui/BackToTop";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import CookieConsent from "@/components/ui/CookieConsent";
 import LoadingScreen from "@/components/ui/LoadingScreen";
+import PageTransition from "@/components/ui/PageTransition";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin", "latin-ext"],
@@ -89,14 +90,26 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${bodoni.variable} ${inter.variable} ${raleway.variable} h-full antialiased`}>
+      <head>
+        <link rel="apple-touch-icon" href="/images/logo-figure-dark.png" />
+        <link rel="icon" type="image/png" href="/images/logo-figure-dark.png" />
+      </head>
       <body className="min-h-full flex flex-col">
+        <a href="#main-content" className="skip-to-content">
+          {locale === "sk" ? "Preskočiť na obsah" :
+           locale === "hu" ? "Ugrás a tartalomhoz" :
+           locale === "de" ? "Zum Inhalt springen" :
+           "Skip to content"}
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <LoadingScreen />
         <Navbar locale={locale as Locale} dict={dict} />
-        <main className="flex-1 pt-20">{children}</main>
+        <main id="main-content" className="flex-1 pt-20" role="main">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer locale={locale as Locale} dict={dict} />
         <WhatsAppButton />
         <BackToTop />

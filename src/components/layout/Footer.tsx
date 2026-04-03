@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Locale } from "@/lib/i18n";
+import NewsletterForm from "@/components/ui/NewsletterForm";
 
 interface FooterProps {
   locale: Locale;
@@ -9,12 +10,47 @@ interface FooterProps {
 
 export default function Footer({ locale, dict }: FooterProps) {
   return (
-    <footer className="relative" style={{ background: "var(--black)" }}>
+    <footer className="relative" role="contentinfo" style={{ background: "var(--black)" }}>
       {/* Gradient top border (from demo) */}
       <div
         className="absolute top-0 left-0 right-0 h-[1px]"
         style={{
           background: "linear-gradient(90deg, transparent, var(--crimson), var(--gold), var(--crimson), transparent)",
+        }}
+      />
+
+      {/* Newsletter section */}
+      <div className="pt-16 pb-12 px-6">
+        <div className="max-w-[600px] mx-auto text-center">
+          <h3
+            className="text-xl uppercase tracking-wider mb-2"
+            style={{ fontFamily: "var(--font-heading)", color: "var(--gold)" }}
+          >
+            {locale === "sk"
+              ? "Newsletter"
+              : locale === "hu"
+              ? "Hírlevél"
+              : locale === "de"
+              ? "Newsletter"
+              : "Newsletter"}
+          </h3>
+          <p className="text-sm mb-6" style={{ color: "var(--light-gray)", fontStyle: "italic" }}>
+            {locale === "sk"
+              ? "Buď prvý, kto sa dozvie o udalostiach a exkluzívnych ponukách."
+              : locale === "hu"
+              ? "Légy az első, aki értesül az eseményekről és exkluzív ajánlatokról."
+              : locale === "de"
+              ? "Erfahren Sie als Erster von Events und exklusiven Angeboten."
+              : "Be the first to hear about events and exclusive offers."}
+          </p>
+          <NewsletterForm locale={locale} />
+        </div>
+      </div>
+
+      <div
+        className="mx-6 h-[1px] max-w-[1200px] lg:mx-auto"
+        style={{
+          background: "linear-gradient(90deg, transparent, var(--glass-border), transparent)",
         }}
       />
 

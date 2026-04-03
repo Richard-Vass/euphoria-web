@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Locale, locales, localeNames } from "@/lib/i18n";
 
 interface NavbarProps {
@@ -40,6 +41,8 @@ export default function Navbar({ locale, dict }: NavbarProps) {
   return (
     <>
       <nav
+        role="navigation"
+        aria-label="Main navigation"
         className="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between transition-all duration-500"
         style={{
           padding: scrolled ? "0.7rem 2.5rem" : "1.2rem 2.5rem",
@@ -86,7 +89,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
 
         {/* Language switcher + CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <div className="flex gap-1">
+          <div className="flex gap-1" role="group" aria-label="Language switcher">
             {locales.map((loc) => (
               <Link
                 key={loc}
@@ -97,6 +100,8 @@ export default function Navbar({ locale, dict }: NavbarProps) {
                     : "text-[var(--light-gray)] hover:text-white"
                 }`}
                 title={localeNames[loc]}
+                aria-label={`Switch to ${localeNames[loc]}`}
+                aria-current={loc === locale ? "true" : undefined}
               >
                 {loc}
               </Link>
@@ -111,63 +116,104 @@ export default function Navbar({ locale, dict }: NavbarProps) {
         <button
           className="lg:hidden text-[var(--gold)]"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Menu"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
-      {/* Mobile menu overlay (from demo) */}
-      {isOpen && (
-        <div className="mobile-menu-overlay fixed inset-0 z-[999] flex flex-col items-center justify-center gap-8">
-          {/* Close button */}
-          <button
-            className="absolute top-6 right-6 text-[var(--gold)]"
-            onClick={() => setIsOpen(false)}
-            aria-label="Close"
+      {/* Mobile menu overlay (from demo) — with framer-motion */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation menu"
+            className="mobile-menu-overlay fixed inset-0 z-[999] flex flex-col items-center justify-center gap-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
           >
-            <X size={28} />
-          </button>
-
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
+            {/* Close button */}
+            <motion.button
+              className="absolute top-6 right-6 text-[var(--gold)]"
               onClick={() => setIsOpen(false)}
-              style={{ fontFamily: "var(--font-heading)", fontSize: "1.5rem" }}
-              className="text-white hover:text-[var(--gold)] transition-colors duration-300"
+              aria-label="Close menu"
+              initial={{ opacity: 0, rotate: -90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
             >
-              {link.label}
-            </Link>
-          ))}
+              <X size={28} />
+            </motion.button>
 
-          <Link
-            href={`/${locale}/reservation`}
-            className="nav-cta mt-4"
-            onClick={() => setIsOpen(false)}
-          >
-            {dict.hero_cta}
-          </Link>
-
-          <div className="flex gap-3 mt-4">
-            {locales.map((loc) => (
-              <Link
-                key={loc}
-                href={`/${loc}${pathWithoutLocale}`}
-                onClick={() => setIsOpen(false)}
-                className={`text-sm uppercase px-3 py-1.5 border transition-colors ${
-                  loc === locale
-                    ? "border-[var(--gold)] text-[var(--gold)]"
-                    : "border-[var(--glass-border)] text-[var(--light-gray)] hover:text-white"
-                }`}
-                style={{ borderRadius: "50px" }}
+            {navLinks.map((link, i) => (
+              <motion.div
+                key={link.href}
+                initial={{ opacity: 0, x: 60 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 60 }}
+                transition={{
+                  delay: 0.08 * i,
+                  duration: 0.35,
+                  ease: [0.4, 0, 0.2, 1],
+                }}
               >
-                {loc}
-              </Link>
+                <Link
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  style={{ fontFamily: "var(--font-heading)", fontSize: "1.5rem" }}
+                  className="text-white hover:text-[var(--gold)] transition-colors duration-300"
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
             ))}
-          </div>
-        </div>
-      )}
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ delay: 0.08 * navLinks.length, duration: 0.35 }}
+            >
+              <Link
+                href={`/${locale}/reservation`}
+                className="nav-cta mt-4"
+                onClick={() => setIsOpen(false)}
+              >
+                {dict.hero_cta}
+              </Link>
+            </motion.div>
+
+            <motion.div
+              className="flex gap-3 mt-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ delay: 0.08 * (navLinks.length + 1), duration: 0.35 }}
+            >
+              {locales.map((loc) => (
+                <Link
+                  key={loc}
+                  href={`/${loc}${pathWithoutLocale}`}
+                  onClick={() => setIsOpen(false)}
+                  className={`text-sm uppercase px-3 py-1.5 border transition-colors ${
+                    loc === locale
+                      ? "border-[var(--gold)] text-[var(--gold)]"
+                      : "border-[var(--glass-border)] text-[var(--light-gray)] hover:text-white"
+                  }`}
+                  style={{ borderRadius: "50px" }}
+                >
+                  {loc}
+                </Link>
+              ))}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

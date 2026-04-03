@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: "/images/logo-figure-dark.png",
+    apple: "/images/logo-figure-dark.png",
   },
   openGraph: {
     title: "Euphoria Night Club | Šamorín",
