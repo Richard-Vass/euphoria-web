@@ -29,11 +29,11 @@ export default function LoadingScreen() {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
             <Image
-              src="/images/logo-figure-dark.png"
+              src="/images/logo-figure-transparent.png"
               alt="Euphoria"
-              width={120}
-              height={120}
-              className="w-24 h-24 object-contain"
+              width={300}
+              height={300}
+              className="w-52 h-52 lg:w-64 lg:h-64 object-contain"
               priority
             />
           </motion.div>
