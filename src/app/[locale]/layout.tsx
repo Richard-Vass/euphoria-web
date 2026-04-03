@@ -49,8 +49,9 @@ export default async function LocaleLayout({
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "NightClub",
+    "@type": "BarOrPub",
     name: "Euphoria Night Club",
+    description: "Exkluzívny pánsky bar v Šamoríne. VIP izby, prémiové koktaily, diskrétna atmosféra.",
     url: `https://euphoria-web-gules.vercel.app/${locale}`,
     image: "https://euphoria-web-gules.vercel.app/images/logo-figure-dark.png",
     telephone: "+421 950 480 799",
@@ -71,15 +72,21 @@ export default async function LocaleLayout({
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Friday", "Saturday"],
-        opens: "21:00",
-        closes: "05:00",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Sunday"],
+        opens: "19:00",
+        closes: "02:00",
       },
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Sunday"],
-        opens: "00:00",
-        closes: "00:00",
+        dayOfWeek: ["Friday"],
+        opens: "19:00",
+        closes: "04:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday"],
+        opens: "19:00",
+        closes: "06:00",
       },
     ],
     sameAs: [

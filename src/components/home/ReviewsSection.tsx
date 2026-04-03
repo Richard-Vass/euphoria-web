@@ -9,33 +9,33 @@ interface ReviewsSectionProps {
 
 const reviews = [
   {
-    name: "Martina K.",
+    name: "Martin K.",
     rating: 5,
     text: {
-      sk: "Absolútne perfektný zážitok! VIP izba bola nádherná, koktaily na úrovni a personál veľmi profesionálny. Určite sa vrátime!",
-      hu: "Teljesen tökéletes élmény! A VIP szoba gyönyörű volt, a koktélok kiválóak és a személyzet nagyon profi. Biztosan visszatérünk!",
-      de: "Ein absolut perfektes Erlebnis! Das VIP-Zimmer war wunderschön, die Cocktails erstklassig und das Personal sehr professionell. Wir kommen definitiv wieder!",
-      en: "An absolutely perfect experience! The VIP room was gorgeous, cocktails top-notch and the staff very professional. We will definitely come back!",
+      sk: "Výborná atmosféra a diskrétny servis. VIP izba bola na úrovni, koktaily špičkové. Presne to, čo som hľadal. Vrátim sa!",
+      hu: "Kiváló hangulat és diszkrét kiszolgálás. A VIP szoba magas színvonalú volt, a koktélok csúcsminőségűek. Visszatérek!",
+      de: "Ausgezeichnete Atmosphäre und diskreter Service. Das VIP-Zimmer war erstklassig, die Cocktails hervorragend. Ich komme wieder!",
+      en: "Excellent atmosphere and discreet service. The VIP room was top-notch, cocktails superb. Exactly what I was looking for. I'll be back!",
     },
   },
   {
     name: "Tomáš B.",
     rating: 5,
     text: {
-      sk: "Najlepší klub v okolí! Atmosféra je neuveriteľná, hudba perfektná a drinky fantastické. Každý piatok sme tu!",
-      hu: "A legjobb klub a környéken! A hangulat hihetetlen, a zene tökéletes és az italok fantasztikusak. Minden pénteken itt vagyunk!",
-      de: "Der beste Club in der Umgebung! Die Atmosphäre ist unglaublich, die Musik perfekt und die Drinks fantastisch. Jeden Freitag sind wir hier!",
-      en: "The best club around! The atmosphere is incredible, music is perfect and drinks are fantastic. We're here every Friday!",
+      sk: "Najlepší podnik v okolí. Perfektná atmosféra, skvelé drinky a hlavne absolútna diskrétnosť. Každý týždeň sa sem rád vraciam.",
+      hu: "A legjobb hely a környéken. Tökéletes hangulat, remek italok és ami a legfontosabb — teljes diszkréció. Minden héten szívesen visszatérek.",
+      de: "Das beste Lokal in der Umgebung. Perfekte Atmosphäre, tolle Drinks und vor allem absolute Diskretion. Ich komme jede Woche gerne wieder.",
+      en: "The best place around. Perfect atmosphere, great drinks and above all — absolute discretion. I gladly come back every week.",
     },
   },
   {
-    name: "Petra N.",
+    name: "Róbert M.",
     rating: 5,
     text: {
-      sk: "Oslávili sme tu narodeniny a bolo to úžasné. Narodeninový balíček s fľašou šampanského bol skvelý bonus. Odporúčam každému!",
-      hu: "Itt ünnepeltük a születésnapot és fantasztikus volt. A születésnapi csomag pezsgővel remek bónusz volt. Mindenkinek ajánlom!",
-      de: "Wir haben hier Geburtstag gefeiert und es war großartig. Das Geburtstagspaket mit Champagner war ein toller Bonus. Empfehle es jedem!",
-      en: "We celebrated a birthday here and it was amazing. The birthday package with champagne was a great bonus. I recommend it to everyone!",
+      sk: "Oslávili sme tu rozlúčku so slobodou a bolo to fantastické. VIP bottle service bol na úrovni. Odporúčam každému pánovi!",
+      hu: "Itt tartottuk a legénybúcsút és fantasztikus volt. A VIP palack szervíz magas színvonalú volt. Minden úriembernek ajánlom!",
+      de: "Wir haben hier einen Junggesellenabschied gefeiert und es war fantastisch. Der VIP-Flaschenservice war erstklassig. Empfehle es jedem Herrn!",
+      en: "We had a stag party here and it was fantastic. VIP bottle service was top class. I recommend it to every gentleman!",
     },
   },
 ];

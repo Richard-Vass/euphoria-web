@@ -2,7 +2,7 @@ import { Locale, getDictionary } from "@/lib/i18n";
 import VideoHero from "@/components/home/VideoHero";
 import MenuTabs from "@/components/home/MenuTabs";
 import Link from "next/link";
-import { Calendar, Wine, Music, Sparkles, Cake, Clock, Heart, Star } from "lucide-react";
+import { Calendar, Wine, Music, Sparkles, Cake, Clock, Star } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ReviewsSection from "@/components/home/ReviewsSection";
 import type { Metadata } from "next";
@@ -20,10 +20,10 @@ export async function generateMetadata({
     en: "Euphoria Night Club | Šamorín",
   };
   const descriptions: Record<string, string> = {
-    sk: "Luxusný nočný klub v Šamoríne. VIP izby, prémiové koktaily, nezabudnuteľné nočné eventy.",
+    sk: "Exkluzívny pánsky bar v Šamoríne. VIP izby, prémiové koktaily, diskrétna atmosféra.",
     hu: "Luxus éjszakai klub Somorján. VIP szobák, prémium koktélok, felejthetetlen esti események.",
-    de: "Luxuriöser Nachtclub in Šamorín. VIP-Zimmer, Premium-Cocktails, unvergessliche Nacht-Events.",
-    en: "Luxury nightclub in Šamorín. VIP rooms, premium cocktails, unforgettable night events.",
+    de: "Exklusive Gentlemen's Bar in Šamorín. VIP-Zimmer, Premium-Cocktails, diskrete Atmosphäre.",
+    en: "Exclusive gentlemen's bar in Šamorín. VIP rooms, premium cocktails, discreet atmosphere.",
   };
   const title = titles[locale] || titles.en;
   const description = descriptions[locale] || descriptions.en;
@@ -63,12 +63,12 @@ export default async function HomePage({
               <h2>Euphoria</h2>
               <p>
                 {locale === "sk"
-                  ? "Exkluzívny nočný klub v srdci Šamorína. Prémiový zážitok, špičkové koktaily a nezabudnuteľné noci."
+                  ? "Exkluzívny pánsky bar v srdci Šamorína. Diskrétna atmosféra, prémiový zážitok a špičkové koktaily."
                   : locale === "hu"
-                  ? "Exkluzív éjszakai klub Somorja szívében. Prémium élmény, csúcsminőségű koktélok és felejthetetlen éjszakák."
+                  ? "Exkluzív úri bár Somorja szívében. Diszkrét hangulat, prémium élmény és csúcsminőségű koktélok."
                   : locale === "de"
-                  ? "Exklusiver Nachtclub im Herzen von Šamorín. Premium-Erlebnis, erstklassige Cocktails und unvergessliche Nächte."
-                  : "An exclusive nightclub in the heart of Šamorín. Premium experience, top-tier cocktails and unforgettable nights."}
+                  ? "Exklusive Gentlemen's Bar im Herzen von Šamorín. Diskrete Atmosphäre, Premium-Erlebnis und erstklassige Cocktails."
+                  : "An exclusive gentlemen's bar in the heart of Šamorín. Discreet atmosphere, premium experience and top-tier cocktails."}
               </p>
             </div>
 
@@ -488,7 +488,7 @@ export default async function HomePage({
                 </div>
               </ScrollReveal>
 
-              {/* Ladies Night */}
+              {/* VIP Bottle Service */}
               <ScrollReveal delay={200}>
                 <div
                   className="relative p-6 text-center group transition-all duration-500 hover:translate-y-[-5px]"
@@ -509,20 +509,20 @@ export default async function HomePage({
                         border: "1px solid rgba(212, 175, 55, 0.25)",
                       }}
                     >
-                      <Heart size={28} style={{ color: "var(--gold)" }} />
+                      <Wine size={28} style={{ color: "var(--gold)" }} />
                     </div>
                   </div>
                   <h3
                     className="text-xl uppercase tracking-wider mb-3"
                     style={{ fontFamily: "var(--font-heading)", color: "var(--cream)" }}
                   >
-                    Ladies Night
+                    VIP Bottle Service
                   </h3>
                   <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
-                    {locale === "sk" ? "Každý štvrtok — vstup pre dámy zadarmo" :
-                     locale === "hu" ? "Minden csütörtökön — ingyenes belépés hölgyeknek" :
-                     locale === "de" ? "Jeden Donnerstag — freier Eintritt für Damen" :
-                     "Every Thursday — free entry for ladies"}
+                    {locale === "sk" ? "Prémiová fľaša k VIP izbe — diskrétny servis na úrovni" :
+                     locale === "hu" ? "Prémium palack a VIP szobához — diszkrét, magas szintű szolgáltatás" :
+                     locale === "de" ? "Premium-Flasche zum VIP-Zimmer — diskreter Service auf höchstem Niveau" :
+                     "Premium bottle with VIP room — discreet top-level service"}
                   </p>
                   <Link
                     href={`/${locale}/reservation`}
