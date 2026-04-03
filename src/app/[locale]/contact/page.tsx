@@ -6,6 +6,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const labels: Record<string, Record<string, string>> = {
   sk: { title: "Kontakt", name: "Vaše meno", email: "Váš email", subject: "Predmet", message: "Správa", send: "Odoslať správu", success: "Správa odoslaná!", hours: "Otváracie hodiny", address: "Adresa", phone: "Telefón" },
+  cs: { title: "Kontakt", name: "Vaše jméno", email: "Váš email", subject: "Předmět", message: "Zpráva", send: "Odeslat zprávu", success: "Zpráva odeslána!", hours: "Otevírací hodiny", address: "Adresa", phone: "Telefon" },
   hu: { title: "Kapcsolat", name: "Az Ön neve", email: "Az Ön emailje", subject: "Tárgy", message: "Üzenet", send: "Üzenet küldése", success: "Üzenet elküldve!", hours: "Nyitvatartás", address: "Cím", phone: "Telefon" },
   de: { title: "Kontakt", name: "Ihr Name", email: "Ihre E-Mail", subject: "Betreff", message: "Nachricht", send: "Nachricht senden", success: "Nachricht gesendet!", hours: "Öffnungszeiten", address: "Adresse", phone: "Telefon" },
   en: { title: "Contact", name: "Your name", email: "Your email", subject: "Subject", message: "Message", send: "Send message", success: "Message sent!", hours: "Opening hours", address: "Address", phone: "Phone" },
@@ -13,6 +14,7 @@ const labels: Record<string, Record<string, string>> = {
 
 const dayNames: Record<string, { monThu: string; fri: string; sat: string; sun: string }> = {
   sk: { monThu: "Pondelok - Štvrtok", fri: "Piatok", sat: "Sobota", sun: "Nedeľa" },
+  cs: { monThu: "Pondělí - Čtvrtek", fri: "Pátek", sat: "Sobota", sun: "Neděle" },
   hu: { monThu: "Hétfő - Csütörtök", fri: "Péntek", sat: "Szombat", sun: "Vasárnap" },
   de: { monThu: "Montag - Donnerstag", fri: "Freitag", sat: "Samstag", sun: "Sonntag" },
   en: { monThu: "Monday - Thursday", fri: "Friday", sat: "Saturday", sun: "Sunday" },

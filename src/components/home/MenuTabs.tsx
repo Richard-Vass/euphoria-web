@@ -29,13 +29,14 @@ const categoryIcons: Record<string, React.ComponentType<{ size?: number; classNa
 const menuData: MenuCategory[] = [
   {
     id: "koktaily",
-    labels: { sk: "Koktaily", en: "Cocktails", hu: "Koktélok", de: "Cocktails" },
+    labels: { sk: "Koktaily", cs: "Koktejly", en: "Cocktails", hu: "Koktélok", de: "Cocktails" },
     icon: "koktaily",
     items: [
       {
         name: "Euphoria Sunset",
         descriptions: {
           sk: "Vodka, mango, passion fruit, limetka, prosecco",
+          cs: "Vodka, mango, passion fruit, limetka, prosecco",
           en: "Vodka, mango, passion fruit, lime, prosecco",
           hu: "Vodka, mangó, maracuja, lime, prosecco",
           de: "Wodka, Mango, Passionsfrucht, Limette, Prosecco",
@@ -46,6 +47,7 @@ const menuData: MenuCategory[] = [
         name: "Midnight Mojito",
         descriptions: {
           sk: "Tmav\u00fd rum, \u010derstv\u00e1 m\u00e4ta, limetka, trstinov\u00fd cukor",
+          cs: "Tmavý rum, čerstvá máta, limetka, třtinový cukr",
           en: "Dark rum, fresh mint, lime, cane sugar",
           hu: "S\u00f6t\u00e9t rum, friss menta, lime, n\u00e1dcukor",
           de: "Dunkler Rum, frische Minze, Limette, Rohrzucker",
@@ -56,6 +58,7 @@ const menuData: MenuCategory[] = [
         name: "Golden Negroni",
         descriptions: {
           sk: "Gin, Campari, sweet vermouth, pomaran\u010dov\u00e1 k\u00f4ra",
+          cs: "Gin, Campari, sweet vermouth, pomerančová kůra",
           en: "Gin, Campari, sweet vermouth, orange peel",
           hu: "Gin, Campari, \u00e9des vermut, narancsh\u00e9j",
           de: "Gin, Campari, s\u00fc\u00dfer Wermut, Orangenschale",
@@ -66,6 +69,7 @@ const menuData: MenuCategory[] = [
         name: "Purple Rain",
         descriptions: {
           sk: "Butterfly pea gin, citr\u00f3n, levandu\u013eov\u00fd sirup, tonik",
+          cs: "Butterfly pea gin, citron, levandulový sirup, tonik",
           en: "Butterfly pea gin, lemon, lavender syrup, tonic",
           hu: "Butterfly pea gin, citrom, levendula szirup, tonik",
           de: "Butterfly Pea Gin, Zitrone, Lavendelsirup, Tonic",
@@ -76,13 +80,14 @@ const menuData: MenuCategory[] = [
   },
   {
     id: "whiskey-rum",
-    labels: { sk: "Whiskey & Rum", en: "Whiskey & Rum", hu: "Whiskey & Rum", de: "Whiskey & Rum" },
+    labels: { sk: "Whiskey & Rum", cs: "Whiskey & Rum", en: "Whiskey & Rum", hu: "Whiskey & Rum", de: "Whiskey & Rum" },
     icon: "whiskey-rum",
     items: [
       {
         name: "Jack Daniel\u2019s",
         descriptions: {
           sk: "Tennessee whiskey, 4cl",
+          cs: "Tennessee whiskey, 4cl",
           en: "Tennessee whiskey, 4cl",
           hu: "Tennessee whiskey, 4cl",
           de: "Tennessee Whiskey, 4cl",
@@ -93,6 +98,7 @@ const menuData: MenuCategory[] = [
         name: "Jameson",
         descriptions: {
           sk: "\u00cdrska whiskey, 4cl",
+          cs: "Irská whiskey, 4cl",
           en: "Irish whiskey, 4cl",
           hu: "\u00cdr whiskey, 4cl",
           de: "Irischer Whiskey, 4cl",
@@ -103,6 +109,7 @@ const menuData: MenuCategory[] = [
         name: "Havana Club 7 A\u00f1os",
         descriptions: {
           sk: "Kub\u00e1nsky rum, 4cl",
+          cs: "Kubánský rum, 4cl",
           en: "Cuban rum, 4cl",
           hu: "Kubai rum, 4cl",
           de: "Kubanischer Rum, 4cl",
@@ -113,13 +120,14 @@ const menuData: MenuCategory[] = [
   },
   {
     id: "vino-sampanske",
-    labels: { sk: "V\u00edno & \u0160ampansk\u00e9", en: "Wine & Champagne", hu: "Bor & Pezsg\u0151", de: "Wein & Champagner" },
+    labels: { sk: "V\u00edno & \u0160ampansk\u00e9", cs: "Víno & Šampaňské", en: "Wine & Champagne", hu: "Bor & Pezsg\u0151", de: "Wein & Champagner" },
     icon: "vino-sampanske",
     items: [
       {
         name: "Prosecco Brut",
         descriptions: {
           sk: "Talianske \u0161umiv\u00e9 v\u00edno, poh\u00e1r",
+          cs: "Italské šumivé víno, sklenice",
           en: "Italian sparkling wine, glass",
           hu: "Olasz pezsg\u0151, poh\u00e1r",
           de: "Italienischer Schaumwein, Glas",
@@ -130,6 +138,7 @@ const menuData: MenuCategory[] = [
         name: "Ros\u00e9 S\u00e9lection",
         descriptions: {
           sk: "Franc\u00fazske ru\u017eov\u00e9 v\u00edno, poh\u00e1r",
+          cs: "Francouzské růžové víno, sklenice",
           en: "French ros\u00e9 wine, glass",
           hu: "Francia roz\u00e9 bor, poh\u00e1r",
           de: "Franz\u00f6sischer Ros\u00e9wein, Glas",
@@ -140,13 +149,14 @@ const menuData: MenuCategory[] = [
   },
   {
     id: "pivo",
-    labels: { sk: "Pivo", en: "Beer", hu: "S\u00f6r", de: "Bier" },
+    labels: { sk: "Pivo", cs: "Pivo", en: "Beer", hu: "S\u00f6r", de: "Bier" },
     icon: "pivo",
     items: [
       {
         name: "Pilsner Urquell",
         descriptions: {
           sk: "\u010capovan\u00e9, 0,5l",
+          cs: "Čepované, 0,5l",
           en: "Draught, 0.5l",
           hu: "Csapolt, 0,5l",
           de: "Vom Fass, 0,5l",
@@ -157,6 +167,7 @@ const menuData: MenuCategory[] = [
         name: "Corona Extra",
         descriptions: {
           sk: "F\u013ea\u0161kov\u00e9, 0,33l",
+          cs: "Lahvové, 0,33l",
           en: "Bottled, 0.33l",
           hu: "\u00dcveges, 0,33l",
           de: "Flasche, 0,33l",
@@ -167,13 +178,14 @@ const menuData: MenuCategory[] = [
   },
   {
     id: "nealko",
-    labels: { sk: "Nealko", en: "Non-alcoholic", hu: "Alkoholmentes", de: "Alkoholfrei" },
+    labels: { sk: "Nealko", cs: "Nealko", en: "Non-alcoholic", hu: "Alkoholmentes", de: "Alkoholfrei" },
     icon: "nealko",
     items: [
       {
         name: "Virgin Mojito",
         descriptions: {
           sk: "Limetka, m\u00e4ta, trstinov\u00fd cukor, s\u00f3da",
+          cs: "Limetka, máta, třtinový cukr, soda",
           en: "Lime, mint, cane sugar, soda",
           hu: "Lime, menta, n\u00e1dcukor, sz\u00f3da",
           de: "Limette, Minze, Rohrzucker, Soda",
@@ -184,6 +196,7 @@ const menuData: MenuCategory[] = [
         name: "Fresh limon\u00e1da",
         descriptions: {
           sk: "Citr\u00f3n, pomaran\u010d, z\u00e1zvor, med",
+          cs: "Citron, pomeranč, zázvor, med",
           en: "Lemon, orange, ginger, honey",
           hu: "Citrom, narancs, gy\u00f6mb\u00e9r, m\u00e9z",
           de: "Zitrone, Orange, Ingwer, Honig",
@@ -194,13 +207,14 @@ const menuData: MenuCategory[] = [
   },
   {
     id: "speciality",
-    labels: { sk: "\u0160peciality domu", en: "House Specials", hu: "H\u00e1zi k\u00fcl\u00f6nlegess\u00e9gek", de: "Hausspezialit\u00e4ten" },
+    labels: { sk: "\u0160peciality domu", cs: "Speciality domu", en: "House Specials", hu: "H\u00e1zi k\u00fcl\u00f6nlegess\u00e9gek", de: "Hausspezialit\u00e4ten" },
     icon: "speciality",
     items: [
       {
         name: "Euphoria Royal",
         descriptions: {
           sk: "\u0160ampansk\u00e9, zlat\u00e9 vlo\u010dky, jahoda, elderflower",
+          cs: "Šampaňské, zlaté vločky, jahoda, elderflower",
           en: "Champagne, gold flakes, strawberry, elderflower",
           hu: "Pezsg\u0151, aranypehely, eper, bodza",
           de: "Champagner, Goldflocken, Erdbeere, Holunderbl\u00fcte",
@@ -211,6 +225,7 @@ const menuData: MenuCategory[] = [
         name: "Smoky Old Fashioned",
         descriptions: {
           sk: "Bourbon, \u00faden\u00fd c\u00e9der, pomaran\u010dov\u00e1 esencia, cherry",
+          cs: "Bourbon, uzený cedr, pomerančová esence, cherry",
           en: "Bourbon, smoked cedar, orange essence, cherry",
           hu: "Bourbon, f\u00fcst\u00f6lt c\u00e9drus, narancseszencia, cseresznye",
           de: "Bourbon, ger\u00e4uchertes Zedernholz, Orangenessenz, Kirsche",

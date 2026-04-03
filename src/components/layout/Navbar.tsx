@@ -75,6 +75,18 @@ export default function Navbar({ locale, dict }: NavbarProps) {
             <Link
               key={link.href}
               href={link.href}
+              onClick={(e) => {
+                const hash = link.href.includes("#")
+                  ? link.href.split("#")[1]
+                  : null;
+                if (hash && pathname.replace(/\/$/, "") === link.href.split("#")[0].replace(/\/$/, "")) {
+                  e.preventDefault();
+                  const el = document.getElementById(hash);
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }
+                }
+              }}
               className="nav-link-underline relative uppercase tracking-[0.15em] hover:text-[var(--gold)] transition-colors duration-300"
               style={{
                 fontFamily: "var(--font-ui)",
@@ -164,7 +176,21 @@ export default function Navbar({ locale, dict }: NavbarProps) {
               >
                 <Link
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    setIsOpen(false);
+                    const hash = link.href.includes("#")
+                      ? link.href.split("#")[1]
+                      : null;
+                    if (hash && pathname.replace(/\/$/, "") === link.href.split("#")[0].replace(/\/$/, "")) {
+                      e.preventDefault();
+                      setTimeout(() => {
+                        const el = document.getElementById(hash);
+                        if (el) {
+                          el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      }, 350);
+                    }
+                  }}
                   style={{ fontFamily: "var(--font-heading)", fontSize: "1.5rem" }}
                   className="text-white hover:text-[var(--gold)] transition-colors duration-300"
                 >

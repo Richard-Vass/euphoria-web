@@ -13,12 +13,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const titles: Record<string, string> = {
     sk: "Eventy & Párty",
+    cs: "Události & Párty",
     hu: "Események & Partik",
     de: "Events & Partys",
     en: "Events & Parties",
   };
   const descriptions: Record<string, string> = {
     sk: "Najbližšie akcie, párty a tematické večery v Euphoria Night Club Šamorín.",
+    cs: "Nadcházející akce, párty a tematické večery v Euphoria Night Club Šamorín.",
     hu: "Közelgő események, partik és tematikus esték az Euphoria Night Clubban, Somorján.",
     de: "Kommende Events, Partys und Themenabende im Euphoria Night Club Šamorín.",
     en: "Upcoming events, parties and themed nights at Euphoria Night Club Šamorín.",

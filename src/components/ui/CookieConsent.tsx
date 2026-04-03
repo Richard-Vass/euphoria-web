@@ -9,6 +9,11 @@ const texts: Record<string, { message: string; accept: string; decline: string }
     accept: "Súhlasím",
     decline: "Odmietnuť",
   },
+  cs: {
+    message: "Tato stránka používá cookies ke zlepšení vašeho zážitku. Pokračováním souhlasíte s jejich používáním.",
+    accept: "Souhlasím",
+    decline: "Odmítnout",
+  },
   hu: {
     message: "Ez a weboldal sütiket használ a felhasználói élmény javítása érdekében. A folytatással elfogadja a használatukat.",
     accept: "Elfogadom",

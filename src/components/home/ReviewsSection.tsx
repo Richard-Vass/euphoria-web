@@ -9,33 +9,36 @@ interface ReviewsSectionProps {
 
 const reviews = [
   {
-    name: { sk: "Overený hosť", hu: "Ellenőrzött vendég", de: "Verifizierter Gast", en: "Verified Guest" },
+    name: { sk: "Overený hosť", cs: "Ověřený host", hu: "Ellenőrzött vendég", de: "Verifizierter Gast", en: "Verified Guest" },
     initial: "V",
     rating: 5,
     text: {
       sk: "Výborná atmosféra a diskrétny servis. Privátna izba bola na úrovni, koktaily špičkové. Presne to, čo som hľadal. Vrátim sa!",
+      cs: "Výborná atmosféra a diskrétní servis. Privátní pokoj byl na úrovni, koktejly špičkové. Přesně to, co jsem hledal. Vrátím se!",
       hu: "Kiváló hangulat és diszkrét kiszolgálás. A privát szoba magas színvonalú volt, a koktélok csúcsminőségűek. Visszatérek!",
       de: "Ausgezeichnete Atmosphäre und diskreter Service. Das Privatzimmer war erstklassig, die Cocktails hervorragend. Ich komme wieder!",
       en: "Excellent atmosphere and discreet service. The private room was top-notch, cocktails superb. Exactly what I was looking for. I'll be back!",
     },
   },
   {
-    name: { sk: "Stály hosť", hu: "Törzsvendég", de: "Stammgast", en: "Regular Guest" },
+    name: { sk: "Stály hosť", cs: "Stálý host", hu: "Törzsvendég", de: "Stammgast", en: "Regular Guest" },
     initial: "S",
     rating: 5,
     text: {
       sk: "Najlepší podnik v okolí. Perfektná atmosféra, skvelé drinky a hlavne absolútna diskrétnosť. Každý týždeň sa sem rád vraciam.",
+      cs: "Nejlepší podnik v okolí. Perfektní atmosféra, skvělé drinky a hlavně absolutní diskrétnost. Každý týden se sem rád vracím.",
       hu: "A legjobb hely a környéken. Tökéletes hangulat, remek italok és ami a legfontosabb — teljes diszkréció. Minden héten szívesen visszatérek.",
       de: "Das beste Lokal in der Umgebung. Perfekte Atmosphäre, tolle Drinks und vor allem absolute Diskretion. Ich komme jede Woche gerne wieder.",
       en: "The best place around. Perfect atmosphere, great drinks and above all — absolute discretion. I gladly come back every week.",
     },
   },
   {
-    name: { sk: "Prémiový hosť", hu: "Prémium vendég", de: "Premium-Gast", en: "Premium Guest" },
+    name: { sk: "Prémiový hosť", cs: "Prémiový host", hu: "Prémium vendég", de: "Premium-Gast", en: "Premium Guest" },
     initial: "E",
     rating: 5,
     text: {
       sk: "Bottle service bol na úrovni. Diskrétne, elegantné a profesionálne. Odporúčam každému, kto hľadá niečo exkluzívne.",
+      cs: "Bottle service byl na úrovni. Diskrétní, elegantní a profesionální. Doporučuji každému, kdo hledá něco exkluzivního.",
       hu: "A palack szervíz magas színvonalú volt. Diszkrét, elegáns és professzionális. Ajánlom mindenkinek, aki valami exkluzívat keres.",
       de: "Der Flaschenservice war erstklassig. Diskret, elegant und professionell. Empfehle es jedem, der etwas Exklusives sucht.",
       en: "Bottle service was top class. Discreet, elegant and professional. I recommend it to anyone looking for something exclusive.",
@@ -45,6 +48,7 @@ const reviews = [
 
 const sectionTitle: Record<string, string> = {
   sk: "Recenzie",
+  cs: "Recenze",
   hu: "Vélemények",
   de: "Bewertungen",
   en: "Reviews",
@@ -52,6 +56,7 @@ const sectionTitle: Record<string, string> = {
 
 const sectionSubtitle: Record<string, string> = {
   sk: "Čo hovoria naši hostia",
+  cs: "Co říkají naši hosté",
   hu: "Amit vendégeink mondanak",
   de: "Was unsere Gäste sagen",
   en: "What our guests say",

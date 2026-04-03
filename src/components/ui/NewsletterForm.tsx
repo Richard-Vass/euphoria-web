@@ -9,6 +9,11 @@ const texts: Record<string, { placeholder: string; button: string; success: stri
     button: "Prihlásiť sa",
     success: "Ďakujeme! Odber bol aktivovaný.",
   },
+  cs: {
+    placeholder: "Tvůj email",
+    button: "Přihlásit se",
+    success: "Děkujeme! Odběr byl aktivován.",
+  },
   hu: {
     placeholder: "E-mail címed",
     button: "Feliratkozás",

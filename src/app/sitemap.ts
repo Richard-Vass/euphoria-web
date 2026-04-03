@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const BASE_URL = "https://euphoria-web-gules.vercel.app";
-const locales = ["sk", "hu", "de", "en"];
+const locales = ["sk", "cs", "hu", "de", "en"];
 const pages = ["", "/about", "/contact", "/events", "/gallery", "/reservation"];
 
 export default function sitemap(): MetadataRoute.Sitemap {

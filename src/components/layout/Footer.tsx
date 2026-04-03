@@ -28,6 +28,8 @@ export default function Footer({ locale, dict }: FooterProps) {
           >
             {locale === "sk"
               ? "Newsletter"
+              : locale === "cs"
+              ? "Newsletter"
               : locale === "hu"
               ? "Hírlevél"
               : locale === "de"
@@ -37,6 +39,8 @@ export default function Footer({ locale, dict }: FooterProps) {
           <p className="text-sm mb-6" style={{ color: "var(--light-gray)", fontStyle: "italic" }}>
             {locale === "sk"
               ? "Buď prvý, kto sa dozvie o udalostiach a exkluzívnych ponukách."
+              : locale === "cs"
+              ? "Buďte první, kdo se dozví o událostech a exkluzivních nabídkách."
               : locale === "hu"
               ? "Légy az első, aki értesül az eseményekről és exkluzív ajánlatokról."
               : locale === "de"
@@ -71,6 +75,8 @@ export default function Footer({ locale, dict }: FooterProps) {
             <p className="text-sm leading-relaxed max-w-[300px]" style={{ color: "var(--light-gray)" }}>
               {locale === "sk"
                 ? "Exkluzívny nočný klub v Šamoríne. Premium zážitok každý víkend."
+                : locale === "cs"
+                ? "Exkluzivní noční klub v Šamoríně. Prémiový zážitek každý víkend."
                 : locale === "hu"
                 ? "Exkluzív éjszakai klub Somorján. Prémium élmény minden hétvégén."
                 : locale === "de"
@@ -107,7 +113,7 @@ export default function Footer({ locale, dict }: FooterProps) {
           {/* Navigation column */}
           <div className="footer-col">
             <h4>
-              {locale === "sk" ? "Navigácia" : locale === "hu" ? "Navigáció" : locale === "de" ? "Navigation" : "Navigation"}
+              {locale === "sk" ? "Navigácia" : locale === "cs" ? "Navigace" : locale === "hu" ? "Navigáció" : locale === "de" ? "Navigation" : "Navigation"}
             </h4>
             <ul className="list-none space-y-3">
               <li><Link href={`/${locale}`}>{dict.nav_home}</Link></li>
@@ -149,19 +155,19 @@ export default function Footer({ locale, dict }: FooterProps) {
             <h4>{dict.contact_hours}</h4>
             <div className="space-y-2 text-sm" style={{ color: "var(--light-gray)" }}>
               <div className="flex justify-between">
-                <span>{locale === "sk" ? "Po - Št" : locale === "hu" ? "Hé - Cs" : locale === "de" ? "Mo - Do" : "Mon - Thu"}</span>
+                <span>{locale === "sk" ? "Po - Št" : locale === "cs" ? "Po - Čt" : locale === "hu" ? "Hé - Cs" : locale === "de" ? "Mo - Do" : "Mon - Thu"}</span>
                 <span>19:00 - 02:00</span>
               </div>
               <div className="flex justify-between">
-                <span>{locale === "sk" ? "Piatok" : locale === "hu" ? "Péntek" : locale === "de" ? "Freitag" : "Friday"}</span>
+                <span>{locale === "sk" ? "Piatok" : locale === "cs" ? "Pátek" : locale === "hu" ? "Péntek" : locale === "de" ? "Freitag" : "Friday"}</span>
                 <span>19:00 - 04:00</span>
               </div>
               <div className="flex justify-between">
-                <span>{locale === "sk" ? "Sobota" : locale === "hu" ? "Szombat" : locale === "de" ? "Samstag" : "Saturday"}</span>
+                <span>{locale === "sk" ? "Sobota" : locale === "cs" ? "Sobota" : locale === "hu" ? "Szombat" : locale === "de" ? "Samstag" : "Saturday"}</span>
                 <span>19:00 - 06:00</span>
               </div>
               <div className="flex justify-between">
-                <span>{locale === "sk" ? "Nedeľa" : locale === "hu" ? "Vasárnap" : locale === "de" ? "Sonntag" : "Sunday"}</span>
+                <span>{locale === "sk" ? "Nedeľa" : locale === "cs" ? "Neděle" : locale === "hu" ? "Vasárnap" : locale === "de" ? "Sonntag" : "Sunday"}</span>
                 <span>19:00 - 02:00</span>
               </div>
             </div>

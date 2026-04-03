@@ -12,6 +12,13 @@ const labels = {
     no: "Nie",
     denied: "Pre vstup na túto stránku musíte mať 18 rokov.",
   },
+  cs: {
+    title: "Ověření věku",
+    question: "Je vám 18 nebo více let?",
+    yes: "Ano, je mi 18+",
+    no: "Ne",
+    denied: "Pro vstup na tuto stránku musíte mít 18 let.",
+  },
   hu: {
     title: "Korhatár ellenőrzés",
     question: "Betöltötte a 18. életévét?",
@@ -171,7 +178,7 @@ export default function AgeGate({ locale }: AgeGateProps) {
                   letterSpacing: "0.1em",
                 }}
               >
-                &larr; {locale === "sk" ? "Odísť" : locale === "hu" ? "Kilépés" : locale === "de" ? "Verlassen" : "Leave"}
+                &larr; {locale === "sk" ? "Odísť" : locale === "cs" ? "Odejít" : locale === "hu" ? "Kilépés" : locale === "de" ? "Verlassen" : "Leave"}
               </a>
             </motion.div>
           )}

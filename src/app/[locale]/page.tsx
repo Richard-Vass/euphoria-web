@@ -15,12 +15,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const titles: Record<string, string> = {
     sk: "Euphoria Night Club | Šamorín",
+    cs: "Euphoria Night Club | Šamorín",
     hu: "Euphoria Night Club | Somorja",
     de: "Euphoria Night Club | Šamorín",
     en: "Euphoria Night Club | Šamorín",
   };
   const descriptions: Record<string, string> = {
     sk: "Exkluzívny pánsky bar v Šamoríne. Privátne izby, prémiové koktaily, diskrétna atmosféra.",
+    cs: "Exkluzivní pánský bar v Šamoríně. Privátní pokoje, prémiové koktejly, diskrétní atmosféra.",
     hu: "Exkluzív úri bár Somorján. Privát szobák, prémium koktélok, diszkrét hangulat.",
     de: "Exklusive Gentlemen's Bar in Šamorín. Privatzimmer, Premium-Cocktails, diskrete Atmosphäre.",
     en: "Exclusive gentlemen's bar in Šamorín. Private rooms, premium cocktails, discreet atmosphere.",
@@ -64,6 +66,8 @@ export default async function HomePage({
               <p>
                 {locale === "sk"
                   ? "Exkluzívny pánsky bar v srdci Šamorína. Diskrétna atmosféra, prémiový zážitok a špičkové koktaily."
+                  : locale === "cs"
+                  ? "Exkluzivní pánský bar v srdci Šamorínu. Diskrétní atmosféra, prémiový zážitek a špičkové koktejly."
                   : locale === "hu"
                   ? "Exkluzív úri bár Somorja szívében. Diszkrét hangulat, prémium élmény és csúcsminőségű koktélok."
                   : locale === "de"
@@ -85,6 +89,7 @@ export default async function HomePage({
                     </h3>
                     <p className="text-sm" style={{ color: "var(--light-gray)" }}>
                       {locale === "sk" ? "Najlepšie párty, DJs a tematické večery" :
+                       locale === "cs" ? "Nejlepší párty, DJs a tematické večery" :
                        locale === "hu" ? "A legjobb partik, DJ-k és tematikus esték" :
                        locale === "de" ? "Die besten Partys, DJs und Themenabende" :
                        "The best parties, DJs and themed nights"}
@@ -102,12 +107,14 @@ export default async function HomePage({
                       style={{ fontFamily: "var(--font-heading)", color: "var(--cream)" }}
                     >
                       {locale === "sk" ? "Privátna izba" :
+                       locale === "cs" ? "Privátní pokoj" :
                        locale === "hu" ? "Privát szoba" :
                        locale === "de" ? "Privatzimmer" :
                        "Private Room"}
                     </h3>
                     <p className="text-sm" style={{ color: "var(--light-gray)" }}>
                       {locale === "sk" ? "Diskrétna privátna izba pre váš súkromný zážitok" :
+                       locale === "cs" ? "Diskrétní privátní pokoj pro váš soukromý zážitek" :
                        locale === "hu" ? "Diszkrét privát szoba az Ön privát élményéhez" :
                        locale === "de" ? "Diskretes Privatzimmer für Ihr privates Erlebnis" :
                        "Discreet private room for your personal experience"}
@@ -128,6 +135,7 @@ export default async function HomePage({
                     </h3>
                     <p className="text-sm" style={{ color: "var(--light-gray)" }}>
                       {locale === "sk" ? "Fotky a videá z najlepších nocí" :
+                       locale === "cs" ? "Fotky a videa z nejlepších nocí" :
                        locale === "hu" ? "Fotók és videók a legjobb éjszakákról" :
                        locale === "de" ? "Fotos und Videos der besten Nächte" :
                        "Photos and videos from the best nights"}
@@ -158,12 +166,14 @@ export default async function HomePage({
             <div className="section-header">
               <h2>
                 {locale === "sk" ? "Nápojový lístok" :
+                 locale === "cs" ? "Nápojový lístek" :
                  locale === "hu" ? "Italok" :
                  locale === "de" ? "Getränkekarte" :
                  "Drink Menu"}
               </h2>
               <p>
                 {locale === "sk" ? "Prémiové nápoje pripravené s vášňou" :
+                 locale === "cs" ? "Prémiové nápoje připravené s vášní" :
                  locale === "hu" ? "Prémium italok szenvedéllyel készítve" :
                  locale === "de" ? "Premium-Getränke mit Leidenschaft zubereitet" :
                  "Premium drinks crafted with passion"}
@@ -186,6 +196,7 @@ export default async function HomePage({
               <h2>{dict.nav_events}</h2>
               <p>
                 {locale === "sk" ? "Najbližšie akcie a párty" :
+                 locale === "cs" ? "Nadcházející akce a párty" :
                  locale === "hu" ? "Közelgő rendezvények és partik" :
                  locale === "de" ? "Kommende Events und Partys" :
                  "Upcoming events and parties"}
@@ -213,10 +224,10 @@ export default async function HomePage({
                           borderRadius: "2px",
                         }}
                       >
-                        {locale === "sk" ? "Party" : locale === "hu" ? "Parti" : "Party"}
+                        {locale === "sk" ? "Party" : locale === "cs" ? "Párty" : locale === "hu" ? "Parti" : "Party"}
                       </span>
                       <span className="text-sm" style={{ color: "var(--light-gray)" }}>
-                        {locale === "sk" ? "Piatok" : locale === "hu" ? "Péntek" : locale === "de" ? "Freitag" : "Friday"}
+                        {locale === "sk" ? "Piatok" : locale === "cs" ? "Pátek" : locale === "hu" ? "Péntek" : locale === "de" ? "Freitag" : "Friday"}
                       </span>
                     </div>
                     <h3
@@ -227,6 +238,7 @@ export default async function HomePage({
                     </h3>
                     <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
                       {locale === "sk" ? "DJ sets, neónové svetlá a najlepšia elektronická hudba." :
+                       locale === "cs" ? "DJ sety, neonová světla a nejlepší elektronická hudba." :
                        locale === "hu" ? "DJ szettek, neon fények és a legjobb elektronikus zene." :
                        locale === "de" ? "DJ-Sets, Neonlichter und die beste elektronische Musik." :
                        "DJ sets, neon lights and the best electronic music."}
@@ -242,7 +254,7 @@ export default async function HomePage({
                         textTransform: "uppercase",
                       }}
                     >
-                      {locale === "sk" ? "Viac info" : locale === "hu" ? "Több infó" : locale === "de" ? "Mehr Info" : "More info"} &rarr;
+                      {locale === "sk" ? "Viac info" : locale === "cs" ? "Více info" : locale === "hu" ? "Több infó" : locale === "de" ? "Mehr Info" : "More info"} &rarr;
                     </Link>
                   </div>
                 </div>
@@ -271,7 +283,7 @@ export default async function HomePage({
                         Premium
                       </span>
                       <span className="text-sm" style={{ color: "var(--light-gray)" }}>
-                        {locale === "sk" ? "Sobota" : locale === "hu" ? "Szombat" : locale === "de" ? "Samstag" : "Saturday"}
+                        {locale === "sk" ? "Sobota" : locale === "cs" ? "Sobota" : locale === "hu" ? "Szombat" : locale === "de" ? "Samstag" : "Saturday"}
                       </span>
                     </div>
                     <h3
@@ -282,6 +294,7 @@ export default async function HomePage({
                     </h3>
                     <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
                       {locale === "sk" ? "Exkluzívna noc s bottle service a prémiovými koktailmi." :
+                       locale === "cs" ? "Exkluzivní noc s bottle service a prémiovými koktejly." :
                        locale === "hu" ? "Exkluzív est palack szervízzel és prémium koktélokkal." :
                        locale === "de" ? "Exklusive Nacht mit Flaschenservice und Premium-Cocktails." :
                        "Exclusive night with bottle service and premium cocktails."}
@@ -297,7 +310,7 @@ export default async function HomePage({
                         textTransform: "uppercase",
                       }}
                     >
-                      {locale === "sk" ? "Viac info" : locale === "hu" ? "Több infó" : locale === "de" ? "Mehr Info" : "More info"} &rarr;
+                      {locale === "sk" ? "Viac info" : locale === "cs" ? "Více info" : locale === "hu" ? "Több infó" : locale === "de" ? "Mehr Info" : "More info"} &rarr;
                     </Link>
                   </div>
                 </div>
@@ -326,7 +339,7 @@ export default async function HomePage({
                         Live
                       </span>
                       <span className="text-sm" style={{ color: "var(--light-gray)" }}>
-                        {locale === "sk" ? "Piatok" : locale === "hu" ? "Péntek" : locale === "de" ? "Freitag" : "Friday"}
+                        {locale === "sk" ? "Piatok" : locale === "cs" ? "Pátek" : locale === "hu" ? "Péntek" : locale === "de" ? "Freitag" : "Friday"}
                       </span>
                     </div>
                     <h3
@@ -337,6 +350,7 @@ export default async function HomePage({
                     </h3>
                     <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
                       {locale === "sk" ? "Živá hudba, salsa a latino atmosféra." :
+                       locale === "cs" ? "Živá hudba, salsa a latino atmosféra." :
                        locale === "hu" ? "Élő zene, salsa és latin hangulat." :
                        locale === "de" ? "Live-Musik, Salsa und Latino-Atmosphäre." :
                        "Live music, salsa and latino atmosphere."}
@@ -352,7 +366,7 @@ export default async function HomePage({
                         textTransform: "uppercase",
                       }}
                     >
-                      {locale === "sk" ? "Viac info" : locale === "hu" ? "Több infó" : locale === "de" ? "Mehr Info" : "More info"} &rarr;
+                      {locale === "sk" ? "Viac info" : locale === "cs" ? "Více info" : locale === "hu" ? "Több infó" : locale === "de" ? "Mehr Info" : "More info"} &rarr;
                     </Link>
                   </div>
                 </div>
@@ -361,7 +375,7 @@ export default async function HomePage({
 
             <div className="text-center mt-12">
               <Link href={`/${locale}/events`} className="btn-secondary">
-                {locale === "sk" ? "Všetky eventy" : locale === "hu" ? "Összes rendezvény" : locale === "de" ? "Alle Events" : "All events"}
+                {locale === "sk" ? "Všetky eventy" : locale === "cs" ? "Všechny události" : locale === "hu" ? "Összes rendezvény" : locale === "de" ? "Alle Events" : "All events"}
               </Link>
             </div>
           </div>
@@ -383,12 +397,14 @@ export default async function HomePage({
             <div className="section-header">
               <h2>
                 {locale === "sk" ? "Speciálne ponuky" :
+                 locale === "cs" ? "Speciální nabídky" :
                  locale === "hu" ? "Különleges ajánlatok" :
                  locale === "de" ? "Spezielle Angebote" :
                  "Special Offers"}
               </h2>
               <p>
                 {locale === "sk" ? "Exkluzívne ponuky len pre vás" :
+                 locale === "cs" ? "Exkluzivní nabídky jen pro vás" :
                  locale === "hu" ? "Exkluzív ajánlatok csak Önnek" :
                  locale === "de" ? "Exklusive Angebote nur für Sie" :
                  "Exclusive offers just for you"}
@@ -425,12 +441,14 @@ export default async function HomePage({
                     style={{ fontFamily: "var(--font-heading)", color: "var(--cream)" }}
                   >
                     {locale === "sk" ? "Narodeninový balíček" :
+                     locale === "cs" ? "Narozeninový balíček" :
                      locale === "hu" ? "Születésnapi csomag" :
                      locale === "de" ? "Geburtstagspaket" :
                      "Birthday Package"}
                   </h3>
                   <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
                     {locale === "sk" ? "Privátna izba + fľaša šampanského zadarmo" :
+                     locale === "cs" ? "Privátní pokoj + láhev šampaňského zdarma" :
                      locale === "hu" ? "Privát szoba + egy üveg pezsgő ingyen" :
                      locale === "de" ? "Privatzimmer + eine Flasche Champagner gratis" :
                      "Private room + free bottle of champagne"}
@@ -440,7 +458,7 @@ export default async function HomePage({
                     className="inline-block text-sm uppercase tracking-wider hover:text-[var(--light-gold)] transition-colors"
                     style={{ fontFamily: "var(--font-ui)", color: "var(--gold)", letterSpacing: "0.1em" }}
                   >
-                    {locale === "sk" ? "Rezervovať" : locale === "hu" ? "Foglalás" : locale === "de" ? "Reservieren" : "Reserve"} &rarr;
+                    {locale === "sk" ? "Rezervovať" : locale === "cs" ? "Rezervovat" : locale === "hu" ? "Foglalás" : locale === "de" ? "Reservieren" : "Reserve"} &rarr;
                   </Link>
                 </div>
               </ScrollReveal>
@@ -477,6 +495,7 @@ export default async function HomePage({
                   </h3>
                   <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
                     {locale === "sk" ? "Každý deň 19:00 – 21:00, 30% zľava na drinky" :
+                     locale === "cs" ? "Každý den 19:00 – 21:00, 30% sleva na drinky" :
                      locale === "hu" ? "Minden nap 19:00 – 21:00, 30% kedvezmény az italokra" :
                      locale === "de" ? "Täglich 19:00 – 21:00, 30% Rabatt auf Getränke" :
                      "Every day 19:00 – 21:00, 30% off drinks"}
@@ -486,7 +505,7 @@ export default async function HomePage({
                     className="inline-block text-sm uppercase tracking-wider hover:text-[var(--light-gold)] transition-colors"
                     style={{ fontFamily: "var(--font-ui)", color: "var(--gold)", letterSpacing: "0.1em" }}
                   >
-                    {locale === "sk" ? "Rezervovať" : locale === "hu" ? "Foglalás" : locale === "de" ? "Reservieren" : "Reserve"} &rarr;
+                    {locale === "sk" ? "Rezervovať" : locale === "cs" ? "Rezervovat" : locale === "hu" ? "Foglalás" : locale === "de" ? "Reservieren" : "Reserve"} &rarr;
                   </Link>
                 </div>
               </ScrollReveal>
@@ -523,6 +542,7 @@ export default async function HomePage({
                   </h3>
                   <p className="text-sm mb-4" style={{ color: "var(--light-gray)" }}>
                     {locale === "sk" ? "Prémiová fľaša k privátnej izbe — diskrétny servis na úrovni" :
+                     locale === "cs" ? "Prémiová láhev k privátnímu pokoji — diskrétní servis na úrovni" :
                      locale === "hu" ? "Prémium palack a privát szobához — diszkrét, magas szintű szolgáltatás" :
                      locale === "de" ? "Premium-Flasche zum Privatzimmer — diskreter Service auf höchstem Niveau" :
                      "Premium bottle with private room — discreet top-level service"}
@@ -532,7 +552,7 @@ export default async function HomePage({
                     className="inline-block text-sm uppercase tracking-wider hover:text-[var(--light-gold)] transition-colors"
                     style={{ fontFamily: "var(--font-ui)", color: "var(--gold)", letterSpacing: "0.1em" }}
                   >
-                    {locale === "sk" ? "Rezervovať" : locale === "hu" ? "Foglalás" : locale === "de" ? "Reservieren" : "Reserve"} &rarr;
+                    {locale === "sk" ? "Rezervovať" : locale === "cs" ? "Rezervovat" : locale === "hu" ? "Foglalás" : locale === "de" ? "Reservieren" : "Reserve"} &rarr;
                   </Link>
                 </div>
               </ScrollReveal>
@@ -556,12 +576,14 @@ export default async function HomePage({
             <div className="section-header">
               <h2>
                 {locale === "sk" ? "Rezervuj si privátnu izbu" :
+                 locale === "cs" ? "Rezervujte si privátní pokoj" :
                  locale === "hu" ? "Foglaljon privát szobát" :
                  locale === "de" ? "Reservieren Sie ein Privatzimmer" :
                  "Reserve a private room"}
               </h2>
               <p>
                 {locale === "sk" ? "Diskrétna privátna izba, maximálne súkromie. Rezervuj teraz." :
+                 locale === "cs" ? "Diskrétní privátní pokoj, maximální soukromí. Rezervujte nyní." :
                  locale === "hu" ? "Diszkrét privát szoba, maximális magánélet. Foglaljon most." :
                  locale === "de" ? "Diskretes Privatzimmer, maximale Privatsphäre. Jetzt reservieren." :
                  "Discreet private room, maximum privacy. Reserve now."}
@@ -590,6 +612,7 @@ export default async function HomePage({
               <h2>Instagram</h2>
               <p>
                 {locale === "sk" ? "Sledujte nás na Instagrame" :
+                 locale === "cs" ? "Sledujte nás na Instagramu" :
                  locale === "hu" ? "Kövessen minket az Instagramon" :
                  locale === "de" ? "Folgen Sie uns auf Instagram" :
                  "Follow us on Instagram"}
@@ -678,7 +701,7 @@ export default async function HomePage({
                     className="text-lg uppercase tracking-wider mb-2"
                     style={{ fontFamily: "var(--font-ui)", color: "var(--cream)" }}
                   >
-                    {locale === "sk" ? "Adresa" : locale === "hu" ? "Cím" : locale === "de" ? "Adresse" : "Address"}
+                    {locale === "sk" ? "Adresa" : locale === "cs" ? "Adresa" : locale === "hu" ? "Cím" : locale === "de" ? "Adresse" : "Address"}
                   </h3>
                   <p className="text-sm" style={{ color: "var(--light-gray)" }}>Bratislavská 11</p>
                   <p className="text-sm" style={{ color: "var(--light-gray)" }}>931 01 Šamorín</p>
@@ -697,7 +720,7 @@ export default async function HomePage({
                     className="text-lg uppercase tracking-wider mb-2"
                     style={{ fontFamily: "var(--font-ui)", color: "var(--cream)" }}
                   >
-                    {locale === "sk" ? "Telefon" : locale === "hu" ? "Telefon" : locale === "de" ? "Telefon" : "Phone"}
+                    {locale === "sk" ? "Telefon" : locale === "cs" ? "Telefon" : locale === "hu" ? "Telefon" : locale === "de" ? "Telefon" : "Phone"}
                   </h3>
                   <p className="text-sm" style={{ color: "var(--light-gray)" }}>
                     <a href="tel:+421950480799" className="hover:text-[var(--gold)] transition-colors">+421 950 480 799</a>
@@ -723,16 +746,16 @@ export default async function HomePage({
                     {dict.contact_hours}
                   </h3>
                   <p className="text-sm" style={{ color: "var(--light-gray)" }}>
-                    {locale === "sk" ? "Pondelok - Štvrtok" : locale === "hu" ? "Hétfő - Csütörtök" : locale === "de" ? "Montag - Donnerstag" : "Monday - Thursday"}: 19:00 - 02:00
+                    {locale === "sk" ? "Pondelok - Štvrtok" : locale === "cs" ? "Pondělí - Čtvrtek" : locale === "hu" ? "Hétfő - Csütörtök" : locale === "de" ? "Montag - Donnerstag" : "Monday - Thursday"}: 19:00 - 02:00
                   </p>
                   <p className="text-sm" style={{ color: "var(--light-gray)" }}>
-                    {locale === "sk" ? "Piatok" : locale === "hu" ? "Péntek" : locale === "de" ? "Freitag" : "Friday"}: 19:00 - 04:00
+                    {locale === "sk" ? "Piatok" : locale === "cs" ? "Pátek" : locale === "hu" ? "Péntek" : locale === "de" ? "Freitag" : "Friday"}: 19:00 - 04:00
                   </p>
                   <p className="text-sm" style={{ color: "var(--light-gray)" }}>
-                    {locale === "sk" ? "Sobota" : locale === "hu" ? "Szombat" : locale === "de" ? "Samstag" : "Saturday"}: 19:00 - 06:00
+                    {locale === "sk" ? "Sobota" : locale === "cs" ? "Sobota" : locale === "hu" ? "Szombat" : locale === "de" ? "Samstag" : "Saturday"}: 19:00 - 06:00
                   </p>
                   <p className="text-sm" style={{ color: "var(--light-gray)" }}>
-                    {locale === "sk" ? "Nedeľa" : locale === "hu" ? "Vasárnap" : locale === "de" ? "Sonntag" : "Sunday"}: 19:00 - 02:00
+                    {locale === "sk" ? "Nedeľa" : locale === "cs" ? "Neděle" : locale === "hu" ? "Vasárnap" : locale === "de" ? "Sonntag" : "Sunday"}: 19:00 - 02:00
                   </p>
                 </div>
               </ScrollReveal>
