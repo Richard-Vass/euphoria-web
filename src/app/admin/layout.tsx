@@ -13,6 +13,7 @@ import {
   X,
   LogOut,
   Sparkles,
+  DollarSign,
 } from "lucide-react";
 
 const navItems = [
@@ -20,6 +21,7 @@ const navItems = [
   { href: "/admin/reservations", label: "Rezervacie", icon: CalendarCheck },
   { href: "/admin/events", label: "Eventy", icon: Music },
   { href: "/admin/gallery", label: "Galeria", icon: Image },
+  { href: "/admin/revenue", label: "Trzby", icon: DollarSign },
   { href: "/admin/settings", label: "Nastavenia", icon: Settings },
 ];
 

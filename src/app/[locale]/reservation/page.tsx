@@ -14,6 +14,7 @@ import {
   Loader2,
   CalendarPlus,
   MessageCircle,
+  Shield,
 } from "lucide-react";
 import {
   getRooms,
@@ -90,6 +91,7 @@ const labels: Record<string, Record<string, string>> = {
     december: "December",
     addToCalendar: "Pridať do kalendára",
     shareWhatsApp: "Zdieľať cez WhatsApp",
+    confidential: "Vaše údaje sú dôverné",
   },
   hu: {
     title: "Privát szoba foglalás",
@@ -149,6 +151,7 @@ const labels: Record<string, Record<string, string>> = {
     december: "December",
     addToCalendar: "Hozzáadás a naptárhoz",
     shareWhatsApp: "Megosztás WhatsAppon",
+    confidential: "Az Ön adatai bizalmasak",
   },
   cs: {
     title: "Rezervace privátního pokoje",
@@ -208,6 +211,7 @@ const labels: Record<string, Record<string, string>> = {
     december: "Prosinec",
     addToCalendar: "Přidat do kalendáře",
     shareWhatsApp: "Sdílet přes WhatsApp",
+    confidential: "Vaše údaje jsou důvěrné",
   },
   de: {
     title: "Privatzimmer-Reservierung",
@@ -267,6 +271,7 @@ const labels: Record<string, Record<string, string>> = {
     december: "Dezember",
     addToCalendar: "Zum Kalender hinzufügen",
     shareWhatsApp: "Auf WhatsApp teilen",
+    confidential: "Ihre Daten sind vertraulich",
   },
   en: {
     title: "Private Room Reservation",
@@ -326,6 +331,7 @@ const labels: Record<string, Record<string, string>> = {
     december: "December",
     addToCalendar: "Add to Calendar",
     shareWhatsApp: "Share on WhatsApp",
+    confidential: "Your information is confidential",
   },
 };
 
@@ -1195,6 +1201,12 @@ export default function ReservationPage() {
                 </div>
               </div>
 
+              {/* Confidentiality note */}
+              <div className="max-w-2xl mx-auto mb-6 flex items-center justify-center gap-2 text-euphoria-muted text-sm">
+                <Shield size={16} className="text-euphoria-gold/70" />
+                <span style={{ fontFamily: "var(--font-ui)" }}>{t.confidential}</span>
+              </div>
+
               {/* Form */}
               <form
                 onSubmit={handleSubmit}
@@ -1240,11 +1252,10 @@ export default function ReservationPage() {
                       className="block text-xs text-euphoria-muted mb-2 uppercase tracking-wider"
                       style={{ fontFamily: "var(--font-ui)" }}
                     >
-                      {t.email} *
+                      {t.email}
                     </label>
                     <input
                       type="email"
-                      required
                       value={formData.email}
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
@@ -1252,8 +1263,6 @@ export default function ReservationPage() {
                       className="w-full bg-euphoria-dark border border-euphoria-gray/30 px-4 py-3 text-base text-white placeholder:text-euphoria-muted focus:border-euphoria-gold focus:outline-none transition-colors rounded-sm"
                     />
                   </div>
-                  {/* Guests count je fixne 2 pre privatnu izbu */}
-                  <input type="hidden" value={2} />
                 </div>
 
                 <div>
@@ -1415,10 +1424,6 @@ export default function ReservationPage() {
                       {selectedSlot &&
                         `${formatTime(selectedSlot.start_time)} - ${formatTime(selectedSlot.end_time)}`}
                     </span>
-                  </div>
-                  <div className="flex justify-between text-base">
-                    <span className="text-euphoria-muted">{t.guestsCount}</span>
-                    <span className="text-white">{formData.guests}</span>
                   </div>
                   <div className="flex justify-between text-sm border-t border-euphoria-gray/20 pt-3">
                     <span className="text-euphoria-muted">{t.totalPrice}</span>

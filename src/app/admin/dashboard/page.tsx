@@ -17,11 +17,14 @@ import {
   type Reservation,
   type DashboardStats,
 } from "@/lib/admin";
+import { supabase } from "@/lib/supabase";
 
 export default function DashboardPage() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [recent, setRecent] = useState<Reservation[]>([]);
   const [loading, setLoading] = useState(true);
+  const [dayCounts, setDayCounts] = useState<number[]>([0, 0, 0, 0, 0, 0, 0]);
+  const [thisMonth, setThisMonth] = useState(0);
 
   const loadData = async () => {
     setLoading(true);
@@ -32,6 +35,30 @@ export default function DashboardPage() {
       ]);
       setStats(s);
       setRecent(r);
+
+      // Day-of-week stats + this month counter
+      const { data: allRes } = await supabase
+        .from("reservations")
+        .select("date, status")
+        .neq("status", "cancelled");
+
+      if (allRes) {
+        const now = new Date();
+        const currentMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+        const counts = [0, 0, 0, 0, 0, 0, 0];
+        let monthCount = 0;
+
+        for (const row of allRes) {
+          const d = new Date(row.date + "T00:00:00");
+          counts[d.getDay()] += 1;
+          if (row.date.startsWith(currentMonth)) {
+            monthCount += 1;
+          }
+        }
+
+        setDayCounts(counts);
+        setThisMonth(monthCount);
+      }
     } catch (err) {
       console.error("Dashboard load error:", err);
     } finally {
@@ -188,6 +215,57 @@ export default function DashboardPage() {
           </div>
           <ArrowRight className="w-4 h-4 text-[#c0b8b0] group-hover:text-[#d4af37] transition-colors" />
         </Link>
+      </div>
+
+      {/* This month + Popular days */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {/* This month counter */}
+        <div className="bg-[rgba(180,20,40,0.04)] border border-[rgba(212,175,55,0.18)] rounded-lg p-6 flex flex-col items-center justify-center">
+          <span className="text-[#c0b8b0] text-sm font-[family-name:var(--font-ui)] mb-2">
+            Tento mesiac
+          </span>
+          <p className="text-4xl font-bold text-[#d4af37] font-[family-name:var(--font-heading)]">
+            {thisMonth}
+          </p>
+          <span className="text-[#c0b8b0] text-xs mt-1">
+            {thisMonth === 1 ? "rezervacia" : thisMonth < 5 ? "rezervacie" : "rezervacii"}
+          </span>
+        </div>
+
+        {/* Popular days chart */}
+        <div className="lg:col-span-2 bg-[rgba(180,20,40,0.04)] border border-[rgba(212,175,55,0.18)] rounded-lg p-6">
+          <h3 className="text-sm font-semibold text-[#d4af37] font-[family-name:var(--font-heading)] mb-4">
+            Popularne dni
+          </h3>
+          {(() => {
+            const dayLabels = ["Ne", "Po", "Ut", "Sr", "St", "Pi", "So"];
+            const maxCount = Math.max(...dayCounts, 1);
+            return (
+              <div className="flex items-end gap-2 h-32">
+                {dayCounts.map((count, i) => (
+                  <div key={i} className="flex-1 flex flex-col items-center gap-1">
+                    <span className="text-xs text-[#c0b8b0] font-[family-name:var(--font-ui)]">
+                      {count}
+                    </span>
+                    <div
+                      className="w-full rounded-t transition-all"
+                      style={{
+                        height: `${Math.max((count / maxCount) * 100, 4)}%`,
+                        backgroundColor:
+                          count === maxCount && count > 0
+                            ? "#d4af37"
+                            : "rgba(212,175,55,0.3)",
+                      }}
+                    />
+                    <span className="text-xs text-[#c0b8b0] font-[family-name:var(--font-ui)]">
+                      {dayLabels[i]}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
+        </div>
       </div>
 
       {/* Recent reservations */}

@@ -9,6 +9,7 @@ import CookieConsent from "@/components/ui/CookieConsent";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import AgeGate from "@/components/ui/AgeGate";
 import PageTransition from "@/components/ui/PageTransition";
+import { Analytics } from "@vercel/analytics/next";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin", "latin-ext"],
@@ -124,6 +125,7 @@ export default async function LocaleLayout({
         <WhatsAppButton />
         <BackToTop />
         <CookieConsent locale={locale as Locale} />
+        <Analytics />
       </body>
     </html>
   );

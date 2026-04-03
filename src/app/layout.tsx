@@ -1,8 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#d4af37",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://euphoria-web-gules.vercel.app"),
+  manifest: "/manifest.json",
   title: {
     default: "Euphoria Night Club | Šamorín",
     template: "%s | Euphoria Night Club",

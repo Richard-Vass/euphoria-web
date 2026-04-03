@@ -35,6 +35,7 @@ export default function Navbar({ locale, dict }: NavbarProps) {
     { href: `/${locale}/events`, label: dict.nav_events },
     { href: `/${locale}/reservation`, label: dict.nav_reservation },
     { href: `/${locale}/gallery`, label: dict.nav_gallery },
+    { href: `/${locale}/vouchers`, label: dict.nav_vouchers },
     { href: `/${locale}/contact`, label: dict.nav_contact },
   ];
 

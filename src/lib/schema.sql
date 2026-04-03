@@ -148,6 +148,9 @@ values (
   true
 );
 
+-- Second room (uncomment when ready):
+-- INSERT INTO rooms (name, description, capacity, price_per_slot) VALUES ('Prémiová izba', 'Luxusná izba s jacuzzi a minibarom.', 2, 300);
+
 -- Time slots for Friday (day_of_week = 5)
 insert into time_slots (room_id, day_of_week, start_time, end_time, is_active) values
   ('a1b2c3d4-e5f6-7890-abcd-ef1234567890', 5, '19:00', '22:00', true),

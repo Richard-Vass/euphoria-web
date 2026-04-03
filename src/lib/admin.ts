@@ -238,3 +238,48 @@ export async function deleteGalleryImage(id: string): Promise<void> {
 
   if (error) throw error;
 }
+
+// ============================================
+// BLOCKED DATES
+// ============================================
+
+export interface BlockedDate {
+  id: string;
+  room_id: string | null;
+  date: string;
+  reason: string | null;
+}
+
+export async function getBlockedDates(): Promise<BlockedDate[]> {
+  const { data, error } = await supabase
+    .from("blocked_dates")
+    .select("*")
+    .order("date", { ascending: true });
+
+  if (error) throw error;
+  return (data as BlockedDate[]) || [];
+}
+
+export async function addBlockedDate(
+  date: string,
+  reason?: string
+): Promise<BlockedDate> {
+  const { data, error } = await supabase
+    .from("blocked_dates")
+    .insert({
+      date,
+      reason: reason || null,
+      room_id: null, // blocks all rooms
+    })
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data as BlockedDate;
+}
+
+export async function deleteBlockedDate(id: string): Promise<void> {
+  const { error } = await supabase.from("blocked_dates").delete().eq("id", id);
+
+  if (error) throw error;
+}
