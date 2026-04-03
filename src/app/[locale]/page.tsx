@@ -5,6 +5,9 @@ import Link from "next/link";
 import { Calendar, Wine, Music, Sparkles, Cake, Clock, Star } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ReviewsSection from "@/components/home/ReviewsSection";
+import PricingSection from "@/components/home/PricingSection";
+import FAQSection from "@/components/home/FAQSection";
+import BusinessHours from "@/components/home/BusinessHours";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -561,6 +564,12 @@ export default async function HomePage({
         </section>
       </ScrollReveal>
 
+      {/* ─── PRICING SECTION ─── */}
+      <PricingSection locale={locale} />
+
+      {/* ─── FAQ SECTION ─── */}
+      <FAQSection locale={locale} />
+
       {/* ─── RESERVATION CTA SECTION ─── */}
       <ScrollReveal delay={100}>
         <section
@@ -670,6 +679,9 @@ export default async function HomePage({
           </div>
         </section>
       </ScrollReveal>
+
+      {/* ─── BUSINESS HOURS SECTION ─── */}
+      <BusinessHours locale={locale} />
 
       {/* ─── CONTACT SECTION (from demo: #contact) ─── */}
       <ScrollReveal delay={100}>
