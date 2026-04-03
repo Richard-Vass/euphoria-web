@@ -7,6 +7,7 @@ import BackToTop from "@/components/ui/BackToTop";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import CookieConsent from "@/components/ui/CookieConsent";
 import LoadingScreen from "@/components/ui/LoadingScreen";
+import AgeGate from "@/components/ui/AgeGate";
 import PageTransition from "@/components/ui/PageTransition";
 
 const bodoni = Bodoni_Moda({
@@ -112,6 +113,7 @@ export default async function LocaleLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <AgeGate locale={locale} />
         <LoadingScreen />
         <Navbar locale={locale as Locale} dict={dict} />
         <main id="main-content" className="flex-1 pt-20" role="main">
