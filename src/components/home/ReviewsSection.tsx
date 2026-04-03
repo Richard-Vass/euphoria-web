@@ -9,7 +9,8 @@ interface ReviewsSectionProps {
 
 const reviews = [
   {
-    name: "Martin K.",
+    name: { sk: "Overený hosť", hu: "Ellenőrzött vendég", de: "Verifizierter Gast", en: "Verified Guest" },
+    initial: "V",
     rating: 5,
     text: {
       sk: "Výborná atmosféra a diskrétny servis. VIP izba bola na úrovni, koktaily špičkové. Presne to, čo som hľadal. Vrátim sa!",
@@ -19,7 +20,8 @@ const reviews = [
     },
   },
   {
-    name: "Tomáš B.",
+    name: { sk: "Stály hosť", hu: "Törzsvendég", de: "Stammgast", en: "Regular Guest" },
+    initial: "S",
     rating: 5,
     text: {
       sk: "Najlepší podnik v okolí. Perfektná atmosféra, skvelé drinky a hlavne absolútna diskrétnosť. Každý týždeň sa sem rád vraciam.",
@@ -29,13 +31,14 @@ const reviews = [
     },
   },
   {
-    name: "Róbert M.",
+    name: { sk: "VIP klient", hu: "VIP ügyfél", de: "VIP-Kunde", en: "VIP Client" },
+    initial: "E",
     rating: 5,
     text: {
-      sk: "Oslávili sme tu rozlúčku so slobodou a bolo to fantastické. VIP bottle service bol na úrovni. Odporúčam každému pánovi!",
-      hu: "Itt tartottuk a legénybúcsút és fantasztikus volt. A VIP palack szervíz magas színvonalú volt. Minden úriembernek ajánlom!",
-      de: "Wir haben hier einen Junggesellenabschied gefeiert und es war fantastisch. Der VIP-Flaschenservice war erstklassig. Empfehle es jedem Herrn!",
-      en: "We had a stag party here and it was fantastic. VIP bottle service was top class. I recommend it to every gentleman!",
+      sk: "VIP bottle service bol na úrovni. Diskrétne, elegantné a profesionálne. Odporúčam každému, kto hľadá niečo exkluzívne.",
+      hu: "A VIP palack szervíz magas színvonalú volt. Diszkrét, elegáns és professzionális. Ajánlom mindenkinek, aki valami exkluzívat keres.",
+      de: "Der VIP-Flaschenservice war erstklassig. Diskret, elegant und professionell. Empfehle es jedem, der etwas Exklusives sucht.",
+      en: "VIP bottle service was top class. Discreet, elegant and professional. I recommend it to anyone looking for something exclusive.",
     },
   },
 ];
@@ -74,7 +77,7 @@ export default function ReviewsSection({ locale }: ReviewsSectionProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {reviews.map((review, i) => (
-              <ScrollReveal key={review.name} delay={i * 100}>
+              <ScrollReveal key={review.initial} delay={i * 100}>
                 <div
                   className="p-6 h-full transition-all duration-500 hover:translate-y-[-3px]"
                   style={{
@@ -118,7 +121,7 @@ export default function ReviewsSection({ locale }: ReviewsSectionProps) {
                         fontFamily: "var(--font-heading)",
                       }}
                     >
-                      {review.name.charAt(0)}
+                      {review.initial}
                     </div>
                     <span
                       className="text-sm font-medium"
@@ -128,7 +131,7 @@ export default function ReviewsSection({ locale }: ReviewsSectionProps) {
                         letterSpacing: "0.05em",
                       }}
                     >
-                      {review.name}
+                      {review.name[locale as keyof typeof review.name] || review.name.en}
                     </span>
                   </div>
                 </div>
