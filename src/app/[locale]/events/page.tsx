@@ -108,8 +108,55 @@ export default async function EventsPage({
   const dbEvents = await getEvents();
   const events = dbEvents.length > 0 ? dbEvents : placeholderEvents;
 
+  // JSON-LD Event schema.org — pre lepší Google indexing eventov
+  const eventsJsonLd = events.map((event) => ({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: event.title,
+    startDate: event.date,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place",
+      name: "Euphoria Night Club",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Bratislavská 11",
+        addressLocality: "Šamorín",
+        postalCode: "931 01",
+        addressCountry: "SK",
+      },
+    },
+    image: event.image_url
+      ? [event.image_url]
+      : ["https://euphoria-web-gules.vercel.app/images/logo-figure-dark.png"],
+    description:
+      event.description ||
+      `${event.title} — Euphoria Night Club Šamorín. ${event.dj ? "DJ: " + event.dj : ""}`,
+    performer: event.dj
+      ? { "@type": "PerformingGroup", name: event.dj }
+      : undefined,
+    organizer: {
+      "@type": "Organization",
+      name: "Euphoria Night Club",
+      url: "https://euphoria-web-gules.vercel.app",
+    },
+    offers: {
+      "@type": "Offer",
+      url: `https://euphoria-web-gules.vercel.app/${locale}/reservation`,
+      availability: "https://schema.org/InStock",
+      priceCurrency: "EUR",
+      validFrom: new Date().toISOString(),
+    },
+  }));
+
   return (
     <section className="py-24 px-4">
+      {/* Event Schema.org — Rich results pre Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventsJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="section-title">{dict.events_title}</h1>
