@@ -1,6 +1,6 @@
-import { Instagram } from "lucide-react";
 import Image from "next/image";
 import type { Locale } from "@/lib/i18n";
+import InstagramIcon from "@/components/icons/InstagramIcon";
 
 interface InstagramPost {
   id: string;
@@ -72,7 +72,7 @@ export default async function InstagramFeed({
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Instagram className="text-euphoria-gold" size={32} />
+            <InstagramIcon className="text-euphoria-gold" size={32} />
           </div>
           <h2 id="ig-feed-title" className="section-title">
             {titleLabels[locale] || titleLabels.en}
@@ -107,7 +107,7 @@ export default async function InstagramFeed({
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                    <Instagram
+                    <InstagramIcon
                       className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       size={32}
                     />
@@ -125,7 +125,7 @@ export default async function InstagramFeed({
                 className="aspect-square relative overflow-hidden rounded-sm border border-euphoria-gold/10 bg-gradient-to-br from-euphoria-gray/40 to-euphoria-black/80 flex items-center justify-center"
                 aria-hidden="true"
               >
-                <Instagram
+                <InstagramIcon
                   size={40}
                   className="text-euphoria-gold/20"
                 />
@@ -144,7 +144,7 @@ export default async function InstagramFeed({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 btn-primary"
           >
-            <Instagram size={18} />
+            <InstagramIcon size={18} />
             {ctaLabels[locale] || ctaLabels.en}
           </a>
         </div>
