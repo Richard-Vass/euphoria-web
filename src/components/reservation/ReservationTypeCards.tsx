@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Rezervacia typy: VIP table, dance floor, bar.
+ * Rezervacia typy: Privátna izba, tanečný parket, bar.
  * UI-only — pre live booking uz existuje page.tsx v reservation/.
  * Toto je doplnkovy landing ktory navedie na typ rezervacie.
  */
@@ -18,11 +18,11 @@ const COPY = {
     sub: "Vyberte si zážitok podľa svojich preferencií",
     types: [
       {
-        key: "vip",
+        key: "private",
         icon: "♔",
-        title: "VIP stôl",
-        desc: "Súkromné sedenie s obsluhou, bohaté menu, ideálne pre oslavy.",
-        cta: "Rezervovať VIP",
+        title: "Privátna izba",
+        desc: "Diskrétna privátna izba pre páry. Maximálne súkromie a komfort.",
+        cta: "Rezervovať privátnu izbu",
       },
       {
         key: "dance",
@@ -45,11 +45,11 @@ const COPY = {
     sub: "Choose the experience that suits you",
     types: [
       {
-        key: "vip",
+        key: "private",
         icon: "♔",
-        title: "VIP table",
-        desc: "Private seating with service, rich menu, ideal for celebrations.",
-        cta: "Book VIP",
+        title: "Private room",
+        desc: "Discreet private room for couples. Maximum privacy and comfort.",
+        cta: "Book private room",
       },
       {
         key: "dance",

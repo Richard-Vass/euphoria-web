@@ -281,9 +281,9 @@ export async function createReservation(
       customer_phone: data.customer_phone,
       guests_count: data.guests_count,
       note: data.note || null,
-      // NOTE: Auto-confirm pre privátnu izbu. Edge Function na Supabase
-      // (send-reservation-email) tiež referencuje room name — treba updatnúť
-      // Pozn.: Edge Function (send-reservation-email) referencuje room name "Privátna izba".
+      // Auto-confirm pre privátnu izbu — host dostane potvrdzujúci email cez
+      // Supabase Edge Function (send-reservation-email), ktorá je triggernuta
+      // priamo z reservation/page.tsx po úspešnom INSERT-e.
       status: "confirmed",
     })
     .select("id")
